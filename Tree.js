@@ -1,4 +1,6 @@
 const TreeNode = require("./TreeNode");
+const Validation = require("./Validation");
+
 class Tree {
   constructor() {
     this.head = new TreeNode(null);
