@@ -1,11 +1,19 @@
 const TreeNode = require("./TreeNode");
 const Validation = require("./Validation");
 
+/**
+ * This tree is'nt generic, is specialized to have a name hierarchy.
+ */
 class Tree {
   constructor() {
     this.head = new TreeNode(null);
   }
 
+  
+  /**
+   * Inserts a node to the end of the name hierarchy
+   * @param  {String} nodeName The name of the node thats gonna be inserted
+   */
   addChildrenToNodeByName(nodeName) {
     if (!Validation.isString(nodeName)) {
       return -1;
@@ -21,6 +29,11 @@ class Tree {
     return node;
   }
 
+  
+  /**
+   * @param  {String} nodeName name of the node to insert
+   * @param  {TreeNode} node parent of the node that will be inserted
+   */
   addChildrenNode(nodeName, node) {
     if (!(Validation.isString(nodeName) || Validation.isTreeNode(node))) {
       return -1;
