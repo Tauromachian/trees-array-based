@@ -7,7 +7,7 @@ class Tree {
   }
 
   addChildrenToNodeByName(nodeName) {
-    if (!(nodeName instanceof String)) {
+    if (!Validation.isString(nodeName)) {
       return -1;
     }
 
@@ -22,7 +22,7 @@ class Tree {
   }
 
   addChildrenNode(nodeName, node) {
-    if (!(nodeName instanceof String || node instanceof TreeNode)) {
+    if (!(Validation.isString(nodeName) || Validation.isTreeNode(node))) {
       return -1;
     }
 
