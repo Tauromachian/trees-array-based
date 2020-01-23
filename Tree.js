@@ -9,26 +9,39 @@ class Tree {
       return -1;
     }
 
+    if (nodeName.split(".").length <= 1) {
+      this.head.children.push(new TreeNode(nodeName, this.head));
+      return this.head;
+    }
+
     let node = this.searchNodeByName(nodeName);
     node.addChildren(new TreeNode(nodeName, node));
     return node;
   }
 
+  addChildrenNode(nodeName, node) {
+    if (!(nodeName instanceof String || node instanceof TreeNode)) {
+      return -1;
+    }
+
+    node = this.searchNodeByName(node.name);
+    node.addChildren(new TreeNode(nodeName, node));
+  }
+
   searchNodeByName(nodeName) {
     let node = this.recursiveSearch(head.children, nodeName);
-    if (node){
+    if (node) {
       return node;
-    }
-    else return 0;
+    } else return 0;
   }
 
   recursiveSearch(nodeChildren, nodeName) {
     nodeChildren.forEach(child => {
-      if (child.value === nodeName) {
+      if (child.name === nodeName) {
         return child;
       }
 
-      if (nodeName.includes(child.value)) {
+      if (nodeName.includes(child.name)) {
         nodeChildren = node.nodeChildren;
         return this.recursiveSearch(nodeChildren, nodeName);
       }
@@ -37,7 +50,7 @@ class Tree {
   }
 
   isEqual(nodeName, node) {
-    if (node.value === nodeName) {
+    if (node.name === nodeName) {
       return 1;
     }
     return 0;
