@@ -11,6 +11,7 @@ class Tree {
 
   
   /**
+   * Searchs in the tree hierarchy and adds a new node in its corresponing place
    * Inserts a node to the end of the name hierarchy
    * @param  {String} nodeName The name of the node thats gonna be inserted
    */
@@ -31,18 +32,24 @@ class Tree {
 
   
   /**
+   * Search a the parent node and insert the children
    * @param  {String} nodeName name of the node to insert
-   * @param  {TreeNode} node parent of the node that will be inserted
+   * @param  {String} node parent of the node that will be inserted
    */
-  addChildrenNode(nodeName, node) {
-    if (!(Validation.isString(nodeName) || Validation.isTreeNode(node))) {
+  addChildrenNode(nodeName, nodeParent) {
+    if (!(Validation.isString(nodeName) || Validation.isString(nodeParent))) {
       return -1;
     }
 
-    node = this.searchNodeByName(node.name);
+    let node = this.searchNodeByName(nodeParent);
     node.addChildren(new TreeNode(nodeName, node));
   }
 
+  
+  /**
+   * Searchs in the tree a node with the name providen
+   * @param  {String} nodeName name of the node to search
+   */
   searchNodeByName(nodeName) {
     let node = this.recursiveSearch(head.children, nodeName);
     if (node) {
