@@ -17,6 +17,9 @@ class TreeNode {
     return 0;
   }
 
+  /**
+   * Gets the parent of this TreeNode
+   */
   getParent() {
     return this.parent;
   }
