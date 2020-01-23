@@ -57,7 +57,7 @@ class Tree {
     } else return 0;
   }
 
-  recursiveSearch(nodeChildren, nodeName) {
+  _recursiveSearch(nodeChildren, nodeName) {
     nodeChildren.forEach(child => {
       if (child.name === nodeName) {
         return child;
