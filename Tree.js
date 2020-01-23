@@ -1,3 +1,4 @@
+const TreeNode = require("./TreeNode");
 class Tree {
   constructor() {
     this.head = new TreeNode(null);
@@ -42,3 +43,4 @@ class Tree {
     return 0;
   }
 }
+module.exports = Tree;
