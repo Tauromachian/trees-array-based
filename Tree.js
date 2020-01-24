@@ -1,5 +1,4 @@
 const TreeNode = require("./TreeNode");
-const Validator = require("./Validator");
 
 /**
  * This tree is'nt generic, is specialized to have a name hierarchy.
