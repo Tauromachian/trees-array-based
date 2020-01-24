@@ -1,8 +1,12 @@
 const Tree = require("./Tree");
+const TreeNode = require("./TreeNode");
+const Validator = require("./Validator");
 
 class NameHierarchichalTree extends Tree {
   
-  
+  constructor(){
+    super();
+  }
   /**
    * Searchs in the tree hierarchy and adds a new node in its corresponing place
    * Inserts a node to the end of the name hierarchy
@@ -41,3 +45,5 @@ class NameHierarchichalTree extends Tree {
     return super.searchNodeByName(childrenName);
   }
 }
+
+module.exports = NameHierarchichalTree;
