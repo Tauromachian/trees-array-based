@@ -8,7 +8,7 @@ class Tree {
   constructor() {
     this.head = new TreeNode(null);
   }
-  
+
   /**
    * Searchs in the tree hierarchy and adds a new node in its corresponing place
    * Inserts a node to the end of the name hierarchy
@@ -35,12 +35,26 @@ class Tree {
    * @param  {String} node parent of the node that will be inserted
    */
   addChildrenNode(nodeName, nodeParent) {
-    if (!(Validator.isString(nodeName) || Validator.isString(nodeParent))) {
+    if (!Validator.isString(nodeName)) {
       return -1;
     }
 
-    let node = this.searchNodeByName(nodeParent);
-    node.addChildren(new TreeNode(nodeName, node));
+    let newTreeNode = new TreeNode(nodeName);
+
+    if (!nodeParent) {
+      newTreeNode.putParent(this.head);
+      this.head.addChildren(newTreeNode);
+      return newTreeNode;
+    }
+
+    if (!Validator.isString(nodeParent)) {
+      return -1;
+    }
+
+    let parentNode = this.searchNodeByName(nodeParent);
+    newTreeNode.putParent(parentNode);
+    parentNode.addChildren(newTreeNode);
+    return newTreeNode;
   }
 
   /**
@@ -55,7 +69,7 @@ class Tree {
   }
 
   _recursiveSearch(nodeChildren, nodeName) {
-    nodeChildren.forEach(child => {
+    for (const child in nodeChildren) {
       if (child.name === nodeName) {
         return child;
       }
@@ -64,9 +78,8 @@ class Tree {
         nodeChildren = node.nodeChildren;
         return this._recursiveSearch(nodeChildren, nodeName);
       }
-    });
-    return null;
-  }
+    }
+}
 
   isEqual(nodeName, node) {
     if (node.name === nodeName) {
