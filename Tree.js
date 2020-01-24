@@ -69,12 +69,12 @@ class Tree {
   }
 
   _recursiveSearch(nodeChildren, nodeName) {
-    for (const child in nodeChildren) {
-      if (child.name === nodeName) {
-        return child;
+    for (const key in nodeChildren) {
+      if (nodeChildren[key].name === nodeName) {
+        return nodeChildren[key];
       }
 
-      if (nodeName.includes(child.name)) {
+      if (nodeName.includes(nodeChildren[key].name)) {
         nodeChildren = node.nodeChildren;
         return this._recursiveSearch(nodeChildren, nodeName);
       }
