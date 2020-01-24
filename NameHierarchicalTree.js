@@ -2,17 +2,17 @@ const Tree = require("./Tree");
 
 class NameHierarchichalTree extends Tree {
   addChildren(childrenName) {
-    if (!Validator.isString(nodeName)) {
+    if (!Validator.isString(childrenName)) {
       return -1;
     }
 
-    if (nodeName.split(".").length <= 1) {
-      this.head.addChildren(new TreeNode(nodeName, this.head));
+    if (childrenName.split(".").length <= 1) {
+      this.head.addChildren(new TreeNode(childrenName, this.head));
       return this.head;
     }
 
-    let node = super.searchNodeByName(nodeName);
-    node.addChildren(new TreeNode(nodeName, node));
+    let node = super.searchNodeByName(childrenName);
+    node.addChildren(new TreeNode(childrenName, node));
     return node;
   }
 
