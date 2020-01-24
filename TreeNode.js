@@ -19,6 +19,14 @@ class TreeNode {
     return 0;
   }
 
+  
+  /**
+   * @param  {TreeNode} parent Parent of the node
+   */
+  putParent(parent) {
+    this.parent = parent;
+  }
+
   /**
    * Gets the parent of this TreeNode
    */
