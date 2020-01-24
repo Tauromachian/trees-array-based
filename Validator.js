@@ -1,6 +1,3 @@
-const TreeNode = require("./TreeNode");
-const Tree = require("./Tree");
-
 class Validator {
   static isNumber(value) {
     return value instanceof Number;
