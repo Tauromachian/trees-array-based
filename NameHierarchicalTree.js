@@ -1,6 +1,13 @@
 const Tree = require("./Tree");
 
 class NameHierarchichalTree extends Tree {
+  
+  
+  /**
+   * Searchs in the tree hierarchy and adds a new node in its corresponing place
+   * Inserts a node to the end of the name hierarchy
+   * @param  {String} nodeName The name of the node thats gonna be inserted
+   */
   addChildren(childrenName) {
     if (!Validator.isString(childrenName)) {
       return -1;
