@@ -1,5 +1,5 @@
 const TreeNode = require("./TreeNode");
-const Validation = require("./Validation");
+const Validator = require("./Validator");
 
 /**
  * This tree is'nt generic, is specialized to have a name hierarchy.
@@ -8,7 +8,6 @@ class Tree {
   constructor() {
     this.head = new TreeNode(null);
   }
-
   
   /**
    * Searchs in the tree hierarchy and adds a new node in its corresponing place
@@ -16,12 +15,12 @@ class Tree {
    * @param  {String} nodeName The name of the node thats gonna be inserted
    */
   addChildrenToNodeByName(nodeName) {
-    if (!Validation.isString(nodeName)) {
+    if (!Validator.isString(nodeName)) {
       return -1;
     }
 
     if (nodeName.split(".").length <= 1) {
-      this.head.children.push(new TreeNode(nodeName, this.head));
+      this.head.addChildren(new TreeNode(nodeName, this.head));
       return this.head;
     }
 
@@ -30,14 +29,13 @@ class Tree {
     return node;
   }
 
-  
   /**
    * Search a the parent node and insert the children
    * @param  {String} nodeName name of the node to insert
    * @param  {String} node parent of the node that will be inserted
    */
   addChildrenNode(nodeName, nodeParent) {
-    if (!(Validation.isString(nodeName) || Validation.isString(nodeParent))) {
+    if (!(Validator.isString(nodeName) || Validator.isString(nodeParent))) {
       return -1;
     }
 
@@ -45,13 +43,12 @@ class Tree {
     node.addChildren(new TreeNode(nodeName, node));
   }
 
-  
   /**
    * Searchs in the tree a node with the name providen
    * @param  {String} nodeName name of the node to search
    */
   searchNodeByName(nodeName) {
-    let node = this.recursiveSearch(head.children, nodeName);
+    let node = this._recursiveSearch(this.head.children, nodeName);
     if (node) {
       return node;
     } else return 0;
@@ -65,7 +62,7 @@ class Tree {
 
       if (nodeName.includes(child.name)) {
         nodeChildren = node.nodeChildren;
-        return this.recursiveSearch(nodeChildren, nodeName);
+        return this._recursiveSearch(nodeChildren, nodeName);
       }
     });
     return null;

@@ -1,4 +1,4 @@
-const Validation = require("./Validation");
+const Validator = require("./Validator");
 
 class TreeNode {
   constructor(name, parent) {
@@ -11,7 +11,7 @@ class TreeNode {
    * @param  {TreeNode} treeNodeChildren The tree node children to add
    */
   addChildren(treeNodeChildren) {
-    if (!Validation.isTreeNode(treeNodeChildren)) {
+    if (!(treeNodeChildren instanceof TreeNode)) {
       return 1;
     }
 
@@ -31,7 +31,7 @@ class TreeNode {
    * @param  {Number} index
    */
   removeChildren(index) {
-    if (!Validation.isNumber(index)) {
+    if (!Validator.isNumber(index)) {
       return 1;
     }
     this.children.splice(index);
