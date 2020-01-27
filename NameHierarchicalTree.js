@@ -16,21 +16,34 @@ class NameHierarchichalTree extends Tree {
       return -1;
     }
 
-    if (childrenName.split(".").length <= 1) {
+    let nameArray = childrenName.split(".");
+
+    if (nameArray.length <= 1) {
       this.head.addChildren(new TreeNode(childrenName, this.head));
       return this.head;
     }
 
-    let node = super.searchNodeByName(childrenName);
+    let parentName = "";
+
+    for (let i = 0; i < (nameArray.length - 1); i++) {
+      parentName = parentName.concat(nameArray[i]);      
+    }
+
+    let node = this.searchNodeByName(parentName);
+
+    if(!node){
+      return 0;
+    }
+
     node.addChildren(new TreeNode(childrenName, node));
     return node;
   }
 
   removeChildren(childrenName) {
-    let node = super.searchNodeByName(childrenName);
+    let node = this.searchNodeByName(childrenName);
     let parentNode = node.getParent();
     for (const key in parentNode) {
-      if (parentNode[key].name === childrenName) {
+      if (parentNode[key].value === childrenName) {
         parentNode.splice(key, 1);
       }
     }
@@ -40,8 +53,8 @@ class NameHierarchichalTree extends Tree {
     let node = this.getNodeByName(childrenName);
   }
 
-  getNodeByName(childrenName) {
-    return super.searchNodeByName(childrenName);
+  getNodeByName(nodeName) {
+    return this.searchNodeByName(nodeName);
   }
 
   /**
@@ -49,23 +62,35 @@ class NameHierarchichalTree extends Tree {
    * @param  {String} nodeName name of the node to search
    */
   searchNodeByName(nodeName) {
-    let node = this._recursiveSearch(this.head.children, nodeName);
+    let node = this._recursiveSearch(this.head, nodeName);
+
     if (node) {
       return node;
     } else return 0;
   }
 
-  _recursiveSearch(nodeChildren, nodeName) {
-    for (const key in nodeChildren) {
-      if (nodeChildren[key].name === nodeName) {
-        return nodeChildren[key];
-      }
-
-      if (nodeName.includes(nodeChildren[key].name)) {
-        nodeChildren = node.nodeChildren;
-        return this._recursiveSearch(nodeChildren, nodeName);
+  _recursiveSearch(head, nodeName) {
+    let parent;
+    let children = head.children;
+    for (const key in children) {
+      parent = this._search(children[key], nodeName);
+      if (parent){
+        return parent;
       }
     }
+    return null;
+  }
+
+  _search(parent, nodeName) {
+    if (parent.value == nodeName) {
+      return parent;
+    }
+    for (const key in parent.children) {
+      if (nodeName.includes(parent.children[key].value)) {
+        return this._search(parent.children[key], nodeName);
+      }
+    }
+    return null;
   }
 }
 
