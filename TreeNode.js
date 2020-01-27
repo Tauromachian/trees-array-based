@@ -47,5 +47,13 @@ class TreeNode {
   getParent() {
     return this.parent;
   }
+
+  setValue(value){
+    this.value = value;
+  }
+
+  getValue(){
+    return this.value;
+  }
 }
 module.exports = TreeNode;
