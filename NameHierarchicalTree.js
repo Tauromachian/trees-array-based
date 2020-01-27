@@ -26,8 +26,9 @@ class NameHierarchichalTree extends Tree {
     let parentName = "";
 
     for (let i = 0; i < (nameArray.length - 1); i++) {
-      parentName = parentName.concat(nameArray[i]);      
+      parentName = parentName.concat(nameArray[i],".");      
     }
+    parentName = parentName.substring(0, parentName.length - 1);
 
     let node = this.searchNodeByName(parentName);
 
