@@ -20,16 +20,22 @@ class Tree {
   }
 
   addChildrenNode(treeNode, nodeParent) {
-    let parentNode = this._wideSearch(this.head.children, nodeParent, []);
+    let parentNode = this._wideSearch(this.head, []);
     parentNode.addChildren(treeNode);
   }
 
-  _wideSearch(children, node, nodeArray) {
-    for (const i in children) {
-      if(this.isEqual(children[key], node)){
-        nodeArray.push(children[key]);
+  _wideSearch(nodeParent, nodeArray) {
+    if(!nodeParent.children){
+      return nodeArray;
+    }
+
+    for (const i in nodeParent.children) {
+      if(this.isEqual(children[i], node)){
+        nodeArray.push(children[i]);
       }
     }
+
+    return nodeArray.concat(this._wideSearch(nodeParent, nodeArray));
   }
 
   isEqual(nodeOne, nodeTwo) {
