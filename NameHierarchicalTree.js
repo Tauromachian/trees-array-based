@@ -3,8 +3,7 @@ const TreeNode = require("./TreeNode");
 const Validator = require("./Validator");
 
 class NameHierarchichalTree extends Tree {
-  
-  constructor(){
+  constructor() {
     super();
   }
   /**
@@ -31,7 +30,7 @@ class NameHierarchichalTree extends Tree {
     let node = super.searchNodeByName(childrenName);
     let parentNode = node.getParent();
     for (const key in parentNode) {
-      if(parentNode[key].name === childrenName){
+      if (parentNode[key].name === childrenName) {
         parentNode.splice(key, 1);
       }
     }
@@ -43,6 +42,30 @@ class NameHierarchichalTree extends Tree {
 
   getNodeByName(childrenName) {
     return super.searchNodeByName(childrenName);
+  }
+
+  /**
+   * Searchs in the tree a node with the name providen
+   * @param  {String} nodeName name of the node to search
+   */
+  searchNodeByName(nodeName) {
+    let node = this._recursiveSearch(this.head.children, nodeName);
+    if (node) {
+      return node;
+    } else return 0;
+  }
+
+  _recursiveSearch(nodeChildren, nodeName) {
+    for (const key in nodeChildren) {
+      if (nodeChildren[key].name === nodeName) {
+        return nodeChildren[key];
+      }
+
+      if (nodeName.includes(nodeChildren[key].name)) {
+        nodeChildren = node.nodeChildren;
+        return this._recursiveSearch(nodeChildren, nodeName);
+      }
+    }
   }
 }
 
