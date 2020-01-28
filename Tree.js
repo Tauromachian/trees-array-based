@@ -1,7 +1,7 @@
 const TreeNode = require("./TreeNode");
 
 /**
- * This tree is'nt generic, is specialized to have a name hierarchy.
+ * Generic array tree based structure
  */
 class Tree {
   constructor() {
