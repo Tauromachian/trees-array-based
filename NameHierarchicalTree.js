@@ -43,11 +43,9 @@ class NameHierarchichalTree extends Tree {
   removeChildren(childrenName) {
     let node = this.searchNodeByName(childrenName);
     let parentNode = node.getParent();
-    for (const key in parentNode) {
-      if (parentNode[key].value === childrenName) {
-        parentNode.splice(key, 1);
-      }
-    }
+
+    const index = parentNode.children.indexOf(node);
+    parentNode.children.splice(index);
   }
 
   getChildrenOf(childrenName) {
