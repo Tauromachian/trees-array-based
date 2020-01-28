@@ -1,6 +1,6 @@
 class Validator {
   static isNumber(value) {
-    return value instanceof Number;
+    return typeof value === "number";
   }
 
   static isString(value) {
