@@ -26,7 +26,7 @@ class TreeNode {
     if (!Validator.isNumber(index)) {
       return 1;
     }
-    this.children.splice(index);
+    this.children.splice(index, 1);
     return 0;
   }
 
