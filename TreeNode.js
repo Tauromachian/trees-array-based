@@ -39,6 +39,10 @@ class TreeNode {
     }
   }
 
+  getChild(value) {
+    return this.children.find(child => child.value === value);
+  }
+
   /**
    * @param  {TreeNode} parent Parent of the node
    */
