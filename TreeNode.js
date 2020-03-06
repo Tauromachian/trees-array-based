@@ -55,5 +55,9 @@ class TreeNode {
   getValue(){
     return this.value;
   }
+
+  isNodeChildren(node){
+    return this.children.includes(node);
+  }
 }
 module.exports = TreeNode;
