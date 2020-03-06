@@ -10,32 +10,45 @@ class Tree {
 
   addChildren(object, nodeParent) {
     if (object instanceof TreeNode) {
-      this.addChildrenNode(object, nodeParent);
+      this.addChildrenTreeNode(object, nodeParent);
     }
     if (object instanceof String) {
-      let node = new TreeNode(object, nodeParent);
-      this.addChildrenNode(node, nodeParent);
+      this.addChildrenValue(nodeValue, nodeParent);
     }
     return 0;
   }
 
-  addChildrenNode(treeNode, nodeParent) {
-    let parentNode = this._wideSearch(this.head, []);
+  addChildrenTreeNode(treeNode, nodeParent) {
+    if(!nodeParent){
+      this._addNodeToHead(treeNode);
+      return 1;
+    }
+
+    let parentNode = this._wideSearch(this.head, nodeParent);
     parentNode.addChildren(treeNode);
+
+    return 1;
+  }
+  
+  addChildrenValue(nodeValue, nodeParent){
+    let node = new TreeNode(nodeValue);
+    this.addChildrenTreeNode(node, nodeParent);
   }
 
-  _wideSearch(nodeParent, nodeArray) {
-    if(!nodeParent.children){
-      return nodeArray;
+  _addNodeToHead(node){
+    this.head.addChildren(node);
+  }
+
+  _wideSearch(parent, node) {
+    if (this.isEqual(parent, node)) {
+      return parent;
     }
 
-    for (const i in nodeParent.children) {
-      if(this.isEqual(children[i], node)){
-        nodeArray.push(children[i]);
-      }
+    if (parent.children) {
+      return parent.children.map(child => this._wideSearch(child, node));
     }
 
-    return nodeArray.concat(this._wideSearch(nodeParent, nodeArray));
+    return;
   }
 
   isEqual(nodeOne, nodeTwo) {
