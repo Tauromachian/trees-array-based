@@ -9,17 +9,20 @@ class Tree {
   }
 
   addChildren(object, nodeParent) {
+    if(!object){
+      return 1;
+    }
+
     if (object instanceof TreeNode) {
       this.addChildrenTreeNode(object, nodeParent);
+      return 0;
     }
-    if (object) {
-      this.addChildrenValue(nodeValue, nodeParent);
-    }
+    this.addChildrenValue(nodeValue, nodeParent);
     return 0;
   }
 
   addChildrenTreeNode(treeNode, nodeParent) {
-    if(!nodeParent){
+    if (!nodeParent) {
       this._addNodeToHead(treeNode);
       return 1;
     }
@@ -29,13 +32,13 @@ class Tree {
 
     return 1;
   }
-  
-  addChildrenValue(nodeValue, nodeParent){
+
+  addChildrenValue(nodeValue, nodeParent) {
     let node = new TreeNode(nodeValue);
     this.addChildrenTreeNode(node, nodeParent);
   }
 
-  _addNodeToHead(node){
+  _addNodeToHead(node) {
     this.head.addChildren(node);
   }
 
@@ -45,7 +48,7 @@ class Tree {
     }
 
     if (parent.children) {
-      if(parent.hasChildren(node)){
+      if (parent.hasChildren(node)) {
         parent.getChilde(node.value);
       }
 
