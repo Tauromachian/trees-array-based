@@ -12,7 +12,7 @@ class Tree {
     if (object instanceof TreeNode) {
       this.addChildrenTreeNode(object, nodeParent);
     }
-    if (object instanceof String) {
+    if (object) {
       this.addChildrenValue(nodeValue, nodeParent);
     }
     return 0;
@@ -39,12 +39,16 @@ class Tree {
     this.head.addChildren(node);
   }
 
-  _wideSearch(parent, node) {
+  _wideSearchFirstMatch(parent, node) {
     if (this.isEqual(parent, node)) {
       return parent;
     }
 
     if (parent.children) {
+      if(parent.hasChildren(node)){
+        parent.getChilde(node.value);
+      }
+
       return parent.children.map(child => this._wideSearch(child, node));
     }
 
