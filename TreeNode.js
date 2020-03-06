@@ -30,8 +30,13 @@ class TreeNode {
     return 0;
   }
 
-  getChildren() {
-    return this.children;
+  getChildren(value) {
+    if(!value){
+      return this.children;
+    }
+    else{
+      return this.children.filter(child => child.value === value);
+    }
   }
 
   /**
@@ -56,7 +61,7 @@ class TreeNode {
     return this.value;
   }
 
-  isNodeChildren(node){
+  hasChildren(node){
     return this.children.includes(node);
   }
 }
