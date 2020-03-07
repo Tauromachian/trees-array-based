@@ -14,7 +14,7 @@ class Tree {
     }
 
     if (object instanceof TreeNode) {
-      this.addChildrenTreeNode(object, nodeParent);
+      this._addChildrenTreeNode(object, nodeParent);
       return 0;
     }
     this.addChildrenValue(nodeValue, nodeParent);
@@ -29,7 +29,7 @@ class Tree {
   }
 
   getNode(){
-    
+
   }
 
   _addChildrenTreeNode(treeNode, nodeParent) {
@@ -46,7 +46,7 @@ class Tree {
 
   _addChildrenValue(nodeValue, nodeParent) {
     let node = new TreeNode(nodeValue);
-    this.addChildrenTreeNode(node, nodeParent);
+    this._addChildrenTreeNode(node, nodeParent);
   }
 
   _addNodeToHead(node) {
