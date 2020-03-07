@@ -59,6 +59,16 @@ describe("TreeNode.js", function() {
       let parentNode = new TreeNode("parent");
       parentNode.getChildren("child").should.be.an("array");
     });
+    it("Should return array", function () {
+      let parentNode = new TreeNode("parent");
+      let childNode = new TreeNode("child");
+      let childNode0 = new TreeNode("child");
+      let childNode2 = new TreeNode("child2");
+      parentNode.addChildren(childNode);
+      parentNode.addChildren(childNode2);
+      
+      parentNode.getChildren("child").should.be.an("array");
+    });
     it("Should return all the node's children",function () {
       let parentNode = new TreeNode("parent");
       let childNode = new TreeNode("child");
