@@ -15,7 +15,7 @@ class TreeNode {
       return 1;
     }
 
-    treeNodeChildren.parent = this;
+    treeNodeChildren.setParent(this);
     this.children.push(treeNodeChildren);
     return 0;
   }
