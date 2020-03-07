@@ -9,7 +9,7 @@ class Tree {
   }
 
   addChildren(object, nodeParent) {
-    if(!object){
+    if (!object) {
       return 1;
     }
 
@@ -27,7 +27,7 @@ class Tree {
       return 1;
     }
 
-    let parentNode = this._wideSearch(this.head, nodeParent);
+    let parentNode = this._wideSearchFirstMatch(this.head, nodeParent.value);
     parentNode.addChildren(treeNode);
 
     return 1;
@@ -42,17 +42,47 @@ class Tree {
     this.head.addChildren(node);
   }
 
-  _wideSearchFirstMatch(parent, node) {
-    if (this.isEqual(parent, node)) {
+  _wideSearchAllMatch(parent, value) {
+    if (this.isEqual(parent, value)) {
       return parent;
     }
 
     if (parent.children) {
-      if (parent.hasChildren(node)) {
-        parent.getChilde(node.value);
+      return parent.children.map(child =>
+        this._wideSearchAllMatch(child, value)
+      );
+    }
+
+    return;
+  }
+
+  _wideSearchFirstMatch(parent, value) {
+    if (this.isEqual(parent, value)) {
+      return parent;
+    }
+
+    if (parent.children) {
+      if(parent.hasChildren(value)){
+        return parent.getChild(value);
       }
 
-      return parent.children.map(child => this._wideSearch(child, node));
+      return parent.children.find(child =>
+        this._wideSearchFirstMatchRecursive(child, value)
+      );
+    }
+
+    return 1;
+  }
+
+  _wideSearchFirstMatchRecursive(parent, value) {
+    if (this.isEqual(parent, value)) {
+      return true;
+    }
+
+    if (parent.children) {
+      return parent.children.find(child =>
+        this._wideSearchFirstMatch(child, value)
+      );
     }
 
     return;
