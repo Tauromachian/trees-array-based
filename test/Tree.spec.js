@@ -23,6 +23,12 @@ describe("Tree.js", function() {
       let treeNode2 = new TreeNode("testName");
       tree.isEqual(treeNode1, treeNode2).should.equal(true);
     });
+    it("Should return true", function () {
+      let tree = new Tree();
+      let treeNode1 = new TreeNode("testName");
+      let treeNode2 = new TreeNode("testName");
+      tree.isEqual("testName", "testName").should.equal(true);
+    });
     it("Should return false", function () {
       let tree = new Tree();
       let treeNode1 = new TreeNode("testName");
@@ -31,15 +37,15 @@ describe("Tree.js", function() {
     });
   });
 
-  // describe("_wideSearchFirstMatch", function () {
-  //   it("Should return 1 Error code", function () {
-  //     let tree = new Tree();
-  //     let treeNode = new TreeNode("testName");
-  //     tree.head.addChildren(treeNode);
+  describe("_wideSearchFirstMatch", function () {
+    it("Should return 1 Error code", function () {
+      let tree = new Tree();
+      let treeNode = new TreeNode("testName");
+      tree.head.addChildren(treeNode);
 
-  //     tree._wideSearchFirstMatch()
-  //   });
-  // });
+      tree._wideSearchFirstMatch(treeNode, "testError").should.equal(1);
+    });
+  });
 
   describe("addChildren", function() {
     it("Should return a number", function() {
