@@ -55,6 +55,10 @@ describe("TreeNode.js", function() {
       let parentNode = new TreeNode("parent");
       parentNode.getChildren().should.be.an("array");
     });
+    it("Should return empty array", function () {
+      let parentNode = new TreeNode("parent");
+      parentNode.getChildren("child").should.be.an("array");
+    });
     it("Should return all the node's children",function () {
       let parentNode = new TreeNode("parent");
       let childNode = new TreeNode("child");
