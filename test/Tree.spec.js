@@ -10,7 +10,26 @@ describe("Tree.js", function() {
     expect(Tree).to.exist;
   });
 
-  describe("Trees addChildren", function() {
+  describe("isEqual", function () {
+    it("Should return a boolean", function () {
+      let tree = new Tree();
+      let treeNode1 = new TreeNode("testName");
+      let treeNode2 = new TreeNode("testName");
+      tree.isEqual(treeNode1, treeNode2).should.be.an("boolean");
+    });
+  });
+
+  // describe("_wideSearchFirstMatch", function () {
+  //   it("Should return 1 Error code", function () {
+  //     let tree = new Tree();
+  //     let treeNode = new TreeNode("testName");
+  //     tree.head.addChildren(treeNode);
+
+  //     tree._wideSearchFirstMatch()
+  //   });
+  // });
+
+  describe("addChildren", function() {
     it("Should return a number", function() {
       let tree = new Tree();
       let treeNode = new TreeNode("testName");
