@@ -100,7 +100,17 @@ class Tree {
   }
 
   isEqual(nodeOne, nodeTwo) {
-    return nodeOne.value === nodeTwo.value;
+    if(nodeOne instanceof TreeNode && nodeTwo instanceof TreeNode){
+      return nodeOne.value === nodeTwo.value;
+    }
+    if(!(nodeOne instanceof TreeNode || nodeTwo instanceof TreeNode)){
+      return nodeOne === nodeTwo;
+    }
+    if(nodeOne instanceof TreeNode){
+      return nodeOne.value === nodeTwo;
+    }else{
+      return nodeOne === nodeTwo.value;
+    }
   }
 }
 module.exports = Tree;
