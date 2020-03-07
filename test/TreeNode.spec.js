@@ -113,10 +113,15 @@ describe("TreeNode.js", function() {
     });
   });
 
-  describe("getChildren", function() {
+  describe("getChild", function() {
     it("Should exist", function() {
       const parentNode = new TreeNode("parent");
       expect(parentNode.getChild).to.exist;
+    });
+
+    it("Should return undefined if no matching value", function () {
+      const parentNode = new TreeNode("parent");
+      expect(parentNode.getChild("test")).to.be.undefined;
     });
   });
 });
