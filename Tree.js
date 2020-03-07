@@ -100,10 +100,7 @@ class Tree {
   }
 
   isEqual(nodeOne, nodeTwo) {
-    if (nodeOne.value === nodeTwo.value) {
-      return 1;
-    }
-    return 0;
+    return nodeOne.value === nodeTwo.value;
   }
 }
 module.exports = Tree;
