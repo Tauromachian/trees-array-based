@@ -53,9 +53,8 @@ describe("TreeNode.js", function() {
       let childNode2 = new TreeNode("child2");
       parentNode.addChildren(childNode);
       parentNode.addChildren(childNode2);
-      console.log(parentNode.getChildren());
       
-      parentNode.getChildren().should.equal([childNode, childNode2]);
+      parentNode.getChildren().should.equal(parentNode.children);
     });
   });
 });
