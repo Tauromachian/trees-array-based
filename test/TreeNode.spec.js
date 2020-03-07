@@ -153,4 +153,10 @@ describe("TreeNode.js", function() {
       parentNode.getChild("child").should.equal(childNode);
     });
   });
+  describe("hasChildren", function() {
+    it("Should return a boolean value", function() {
+      let parentNode = new TreeNode("parent");
+      parentNode.hasChildren("test").should.be.a("boolean");
+    });
+  });
 });
