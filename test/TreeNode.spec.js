@@ -95,21 +95,24 @@ describe("TreeNode.js", function() {
       parentNode.addChildren(childNode2);
 
       let children = parentNode.getChildren("child");
-      children[0].value.should.be.equal("child");
+
+      children.should.include(childNode);
+      children.should.not.include(childNode2);
     });
     it("Should return all the matching nodes children", function() {
       let parentNode = new TreeNode("parent");
-      let childNode = new TreeNode("child");
-      let childNode0 = new TreeNode("child");
-      let childNode2 = new TreeNode("child2");
-      parentNode.addChildren(childNode);
-      parentNode.addChildren(childNode0);
+      let childNode1 = new TreeNode("child");
+      let childNode2 = new TreeNode("child");
+      let childNode3 = new TreeNode("child2");
+      parentNode.addChildren(childNode1);
       parentNode.addChildren(childNode2);
+      parentNode.addChildren(childNode3);
 
       let children = parentNode.getChildren("child");
 
-      children[0].value.should.be.equal("child");
-      children[1].value.should.be.equal("child");
+      children.should.include(childNode1);
+      children.should.include(childNode2);
+      children.should.not.include(childNode3);
     });
   });
 
