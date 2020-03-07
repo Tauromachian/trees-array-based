@@ -51,6 +51,10 @@ describe("TreeNode.js", function() {
       let parentNode = new TreeNode("parent");
       expect(parentNode.getChildren).to.exist;
     });
+    it("Should return array", function () {
+      let parentNode = new TreeNode("parent");
+      parentNode.getChildren().should.be.an("array");
+    });
     it("Should return all the node's children",function () {
       let parentNode = new TreeNode("parent");
       let childNode = new TreeNode("child");
