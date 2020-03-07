@@ -17,6 +17,18 @@ describe("Tree.js", function() {
       let treeNode2 = new TreeNode("testName");
       tree.isEqual(treeNode1, treeNode2).should.be.an("boolean");
     });
+    it("Should return true", function () {
+      let tree = new Tree();
+      let treeNode1 = new TreeNode("testName");
+      let treeNode2 = new TreeNode("testName");
+      tree.isEqual(treeNode1, treeNode2).should.equal(true);
+    });
+    it("Should return false", function () {
+      let tree = new Tree();
+      let treeNode1 = new TreeNode("testName");
+      let treeNode2 = new TreeNode("testName2");
+      tree.isEqual(treeNode1, treeNode2).should.equal(false);
+    });
   });
 
   // describe("_wideSearchFirstMatch", function () {
