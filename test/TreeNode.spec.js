@@ -71,8 +71,9 @@ describe("TreeNode.js", function() {
       let childNode2 = new TreeNode("child2");
       parentNode.addChildren(childNode);
       parentNode.addChildren(childNode2);
-      
-      parentNode.getChildren("child").should.not.equal([childNode]);
+
+      let children = parentNode.getChildren("child");
+      children[0].value.should.be.equal("child");
     });
     it("Should return all the matching nodes children",function () {
       let parentNode = new TreeNode("parent");
@@ -82,7 +83,10 @@ describe("TreeNode.js", function() {
       parentNode.addChildren(childNode);
       parentNode.addChildren(childNode2);
       
-      parentNode.getChildren("child").should.not.equal([childNode, childNode0]);
+      let children = parentNode.getChildren("child");
+
+      children[0].value.should.be.equal("child");
+      children[1].value.should.be.equal("child");
     });
   });
 });
