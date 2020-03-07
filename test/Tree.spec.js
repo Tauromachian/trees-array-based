@@ -51,7 +51,7 @@ describe("Tree.js", function() {
       let treeNode = new TreeNode("testName");
       tree.head.addChildren(treeNode);
 
-      tree._wideSearchFirstMatch(treeNode, "testError").should.equal(1);
+      expect(tree._wideSearchFirstMatch(treeNode, "testError")).to.be.undefined;
     });
   });
 
