@@ -27,5 +27,16 @@ describe("TreeNode.js", function() {
       parentNode.addChildren(childNode);
       expect(parentNode).to.equal(parentNode2);
     });
+    it("Should insert correctly in the array of the node parent", function() {
+      let parentNode = new TreeNode("parent");
+      let parentNode2 = parentNode;
+      let childNode = new TreeNode("child");
+      let childNode2 = new TreeNode("child2");
+      parentNode2.children.push(childNode);
+      parentNode2.children.push(childNode2);
+      parentNode.addChildren(childNode);
+      parentNode.addChildren(childNode2);
+      expect(parentNode).to.equal(parentNode2);
+    });
   });
 });
