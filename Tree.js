@@ -21,7 +21,7 @@ class Tree {
     return 0;
   }
 
-  addChildrenTreeNode(treeNode, nodeParent) {
+  _addChildrenTreeNode(treeNode, nodeParent) {
     if (!nodeParent) {
       this._addNodeToHead(treeNode);
       return 1;
@@ -33,7 +33,7 @@ class Tree {
     return 1;
   }
 
-  addChildrenValue(nodeValue, nodeParent) {
+  _addChildrenValue(nodeValue, nodeParent) {
     let node = new TreeNode(nodeValue);
     this.addChildrenTreeNode(node, nodeParent);
   }
