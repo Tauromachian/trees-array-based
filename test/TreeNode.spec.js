@@ -19,6 +19,12 @@ describe("TreeNode.js", function() {
       let parentNode = new TreeNode("parent");
       parentNode.addChildren(null).should.equal(1);
     });
+    it("Should add the parent node to the child'is parent property",function () {
+      let parentNode = new TreeNode("parent");
+      let childNode = new TreeNode("child");
+      parentNode.addChildren(childNode);
+      expect(childNode.parent).to.equal(parentNode);
+    })
     it("Should insert correctly in the array of the node parent", function() {
       let parentNode = new TreeNode("parent");
       let parentNode2 = parentNode;
@@ -37,6 +43,19 @@ describe("TreeNode.js", function() {
       parentNode.addChildren(childNode);
       parentNode.addChildren(childNode2);
       expect(parentNode).to.equal(parentNode2);
+    });
+  });
+
+  describe("getChildren", function () {
+    it("Should return all the node's children",function () {
+      let parentNode = new TreeNode("parent");
+      let childNode = new TreeNode("child");
+      let childNode2 = new TreeNode("child2");
+      parentNode.addChildren(childNode);
+      parentNode.addChildren(childNode2);
+      console.log(parentNode.getChildren());
+      
+      parentNode.getChildren().should.equal([childNode, childNode2]);
     });
   });
 });
