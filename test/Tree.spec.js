@@ -25,9 +25,17 @@ describe("Tree.js", function() {
     });
     it("Should return true", function () {
       let tree = new Tree();
-      let treeNode1 = new TreeNode("testName");
-      let treeNode2 = new TreeNode("testName");
       tree.isEqual("testName", "testName").should.equal(true);
+    });
+    it("Should return true", function () {
+      let tree = new Tree();
+      let treeNode1 = new TreeNode("testName");
+      tree.isEqual(treeNode1, "testName").should.equal(true);
+    });
+    it("Should return true", function () {
+      let tree = new Tree();
+      let treeNode2 = new TreeNode("testName");
+      tree.isEqual("testName", treeNode2).should.equal(true);
     });
     it("Should return false", function () {
       let tree = new Tree();
