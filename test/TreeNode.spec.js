@@ -103,6 +103,7 @@ describe("TreeNode.js", function() {
       let childNode0 = new TreeNode("child");
       let childNode2 = new TreeNode("child2");
       parentNode.addChildren(childNode);
+      parentNode.addChildren(childNode0);
       parentNode.addChildren(childNode2);
       
       let children = parentNode.getChildren("child");
