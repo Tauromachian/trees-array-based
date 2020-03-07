@@ -119,9 +119,35 @@ describe("TreeNode.js", function() {
       expect(parentNode.getChild).to.exist;
     });
 
-    it("Should return undefined if no matching value", function () {
+    it("Should return undefined if no matching value", function() {
       const parentNode = new TreeNode("parent");
       expect(parentNode.getChild("test")).to.be.undefined;
+    });
+
+    it("Should return the matching node", function() {
+      let parentNode = new TreeNode("parent");
+      let childNode = new TreeNode("child");
+
+      parentNode.addChildren(childNode);
+      parentNode.getChild("child").should.equal(childNode);
+    });
+    it("Should return the first matching node", function() {
+      let parentNode = new TreeNode("parent");
+      let childNode = new TreeNode("child");
+      let childNode2 = new TreeNode("child");
+
+      parentNode.addChildren(childNode);
+      parentNode.addChildren(childNode2);
+      parentNode.getChild("child").should.not.be.equal(childNode2);
+    });
+    it("Should return the first matching node", function() {
+      let parentNode = new TreeNode("parent");
+      let childNode = new TreeNode("child");
+      let childNode2 = new TreeNode("child");
+
+      parentNode.addChildren(childNode);
+      parentNode.addChildren(childNode2);
+      parentNode.getChild("child").should.equal(childNode);
     });
   });
 });
