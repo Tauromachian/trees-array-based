@@ -165,5 +165,16 @@ describe("TreeNode.js", function() {
 
       parentNode.hasChildren(childNode).should.equal(true);
     });
+    it("Should return true", function() {
+      let parentNode = new TreeNode("parent");
+      let childNode = new TreeNode("child");
+      let childNode1 = new TreeNode("child");
+      let childNode2 = new TreeNode("child");
+      parentNode.addChildren(childNode);
+      parentNode.addChildren(childNode1);
+      parentNode.addChildren(childNode2);
+
+      parentNode.hasChildren(childNode1).should.equal(true);
+    });
   });
 });
