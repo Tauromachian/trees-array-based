@@ -21,6 +21,17 @@ class Tree {
     return 0;
   }
 
+  removeChildren(object){
+  }
+
+  getChildrenOf(object){
+
+  }
+
+  getNode(){
+    
+  }
+
   _addChildrenTreeNode(treeNode, nodeParent) {
     if (!nodeParent) {
       this._addNodeToHead(treeNode);
