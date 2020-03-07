@@ -46,12 +46,21 @@ describe("Tree.js", function() {
   });
 
   describe("_wideSearchFirstMatch", function () {
-    it("Should return 1 Error code", function () {
+    it("Should return undefined", function () {
       let tree = new Tree();
       let treeNode = new TreeNode("testName");
       tree.head.addChildren(treeNode);
 
       expect(tree._wideSearchFirstMatch(treeNode, "testError")).to.be.undefined;
+    });
+    it("Should return the matching node", function () {
+      let tree = new Tree();
+      let treeNode = new TreeNode("testName");
+      let treeNode2 = new TreeNode("testName2");
+      treeNode.addChildren(treeNode2);
+      tree.head.addChildren(treeNode);
+
+      tree._wideSearchFirstMatch(treeNode, "testName2").should.equal(treeNode2);
     });
   });
 
