@@ -16,14 +16,14 @@ describe("Tree.js", function() {
       let treeNode = new TreeNode("testName");
       tree.addChildren(treeNode).should.be.a("number");
     });
-    it("Should return a 1", function() {
-      let tree = new Tree();
-      tree.addChildren().should.equal(1);
-    });
-    it("Should return a 0", function() {
+    it("Should return a 0 Ok code", function() {
       let tree = new Tree();
       let treeNode = new TreeNode("testName");
       tree.addChildren(treeNode).should.equal(0);
+    });
+    it("Should return a 1 Error code", function() {
+      let tree = new Tree();
+      tree.addChildren().should.equal(1);
     });
   });
 });
