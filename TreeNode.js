@@ -19,9 +19,8 @@ class TreeNode {
     this.children.push(treeNodeChildren);
     return 0;
   }
-
   
-  removeChildren(object){
+  removeChild(object){
     if(!object){
       return -1;
     }
