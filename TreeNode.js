@@ -67,7 +67,17 @@ class TreeNode {
   }
 
   hasChildren(node){
-    return this.children.includes(node);
+    if(!node){
+      return false;
+    }
+
+    if(node instanceof TreeNode){
+      return this.children.includes(node);
+    }
+
+    if(this.getChild(node)){
+      return true;
+    }
   }
 }
 module.exports = TreeNode;
