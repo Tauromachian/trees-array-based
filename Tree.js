@@ -22,11 +22,28 @@ class Tree {
   }
 
   removeChild(object) {
-    const node = this._wideSearchFirstMatch(this.head, object);
+    if(!object){
+      return -1;
+    }
+
+    let node;
+    
+    if(object instanceof TreeNode){
+      node = this._wideSearchFirstMatch(this.head, object.getValue());
+    }else{
+      node = this._wideSearchFirstMatch(this.head, object);
+    }
+
+    if(!node){
+      return 1;
+    }
+
     console.log(node);
     
     let nodeParent = node.getParent();
-    nodeParent.removeChildren(object);
+    nodeParent.removeChild(object);
+
+    return 0;
   }
 
   getChildOf(object) {
