@@ -109,7 +109,12 @@ describe("Tree.js", function() {
     });
   });
 
-
+  describe("getChildrenOf", function () {
+    it("Should return an array", function () {
+      let tree = new Tree();
+      expect(tree.getChildrenOf("testError")).to.equal(0);
+    });
+  });
 
   describe("addChildren", function() {
     it("Should return a number", function() {
