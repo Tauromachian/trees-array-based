@@ -67,7 +67,7 @@ class Tree {
       return parent.getChild(value);
     }
 
-    return parent.children.map(child =>
+    return parent.children.flatMap(child =>
       this._wideSearchFirstMatch(child, value)
     )[0];
   }
