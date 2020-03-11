@@ -52,7 +52,7 @@ class Tree {
     }
 
     let parentNode = this._wideSearchFirstMatch(this.head, nodeParent.value);
-    parentNode.addChildren(treeNode);
+    parentNode.addChild(treeNode);
 
     return 1;
   }
@@ -63,7 +63,7 @@ class Tree {
   }
 
   _addNodeToHead(node) {
-    this.head.addChildren(node);
+    this.head.addChild(node);
   }
 
   _wideSearchAllMatch(parent, value, searched=[]) {
