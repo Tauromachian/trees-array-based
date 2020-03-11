@@ -20,10 +20,25 @@ class TreeNode {
     return 0;
   }
 
-  /**
-   * @param  {Number} index
-   */
-  removeChildren(index) {
+  
+  removeChildren(object){
+    if(!object){
+      return -1;
+    }
+
+    if(!this.hasChildren(object)){
+      return 1;
+    }
+
+    const index = this._indexOf(object);
+    return this._removeChildrenByIndex(index);
+  }
+
+  _indexOf(object){
+    this.children.find(child => child.value === object);
+  }
+
+  _removeChildrenByIndex(index) {
     if (!Validator.isNumber(index)) {
       return 1;
     }
