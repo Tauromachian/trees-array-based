@@ -21,9 +21,15 @@ class Tree {
     return 0;
   }
 
-  removeChildren(object) {}
+  removeChild(object) {
+    const node = this._wideSearchFirstMatch(this.head, object);
+    console.log(node);
+    
+    let nodeParent = node.getParent();
+    nodeParent.removeChildren(object);
+  }
 
-  getChildrenOf(object) {
+  getChildOf(object) {
     if(!object){
       return this.head.getChildren();
     }

@@ -109,10 +109,10 @@ describe("Tree.js", function() {
     });
   });
 
-  describe("getChildrenOf", function () {
+  describe("getChildOf", function () {
     it("Should return an array", function () {
       let tree = new Tree();
-      expect(tree.getChildrenOf("testError")).to.equal(0);
+      expect(tree.getChildOf("testError")).to.equal(0);
     });
 
     it("Should contain the children nodes", function () {
@@ -128,10 +128,10 @@ describe("Tree.js", function() {
       treeNode2.addChildren(treeNode3);
       tree.head.addChildren(treeNode1);
 
-      tree.getChildrenOf("testName1").should.include(treeNode2);
-      tree.getChildrenOf("testName1").should.include(treeNode4);
-      tree.getChildrenOf("testName1").should.not.include(treeNode1);
-      tree.getChildrenOf("testName1").should.not.include(treeNode3);
+      tree.getChildOf("testName1").should.include(treeNode2);
+      tree.getChildOf("testName1").should.include(treeNode4);
+      tree.getChildOf("testName1").should.not.include(treeNode1);
+      tree.getChildOf("testName1").should.not.include(treeNode3);
     });
   });
 
@@ -157,8 +157,8 @@ describe("Tree.js", function() {
       tree.addChildren(treeNode1);
       tree.addChildren(treeNode2);
 
-      tree.getChildrenOf().should.include(treeNode1);
-      tree.getChildrenOf().should.include(treeNode2);
+      tree.getChildOf().should.include(treeNode1);
+      tree.getChildOf().should.include(treeNode2);
     });
     it("Should insert correctly the node", function () {
       let tree = new Tree();
@@ -172,11 +172,27 @@ describe("Tree.js", function() {
       tree.addChildren(treeNode3, treeNode1);
       tree.addChildren(treeNode4, treeNode1);
 
-      tree.getChildrenOf().should.include(treeNode1);
-      tree.getChildrenOf().should.include(treeNode2);
-      tree.getChildrenOf("testName1").should.include(treeNode3);
-      tree.getChildrenOf("testName1").should.include(treeNode4);
+      tree.getChildOf().should.include(treeNode1);
+      tree.getChildOf().should.include(treeNode2);
+      tree.getChildOf("testName1").should.include(treeNode3);
+      tree.getChildOf("testName1").should.include(treeNode4);
 
+    });
+  });
+
+  describe("removeChild", function () {
+    it("Should remove the node succesfully", function () {
+      let tree = new Tree();
+      let treeNode1 = new TreeNode("testName1");
+      let treeNode2 = new TreeNode("testName2");
+
+      tree.addChildren(treeNode1);
+      tree.addChildren(treeNode2);
+
+      tree.removeChild(treeNode1);
+
+      tree.getChildOf().should.not.include(treeNode1);
+      tree.getChildOf().should.include(treeNode2);
     });
   });
 });
