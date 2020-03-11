@@ -63,17 +63,13 @@ class Tree {
       return parent;
     }
 
-    if (parent.children) {
-      if (parent.hasChildren(value)) {
-        return parent.getChild(value);
-      }
-
-      return parent.children.map(child =>
-        this._wideSearchFirstMatch(child, value)
-      )[0];
+    if (parent.hasChildren(value)) {
+      return parent.getChild(value);
     }
 
-    return 1;
+    return parent.children.map(child =>
+      this._wideSearchFirstMatch(child, value)
+    )[0];
   }
 
   isEqual(nodeOne, nodeTwo) {
