@@ -48,14 +48,16 @@ class Tree {
     this.head.addChildren(node);
   }
 
-  _wideSearchAllMatch(parent, value) {
-    if (this.isEqual(parent, value)) {
-      return parent;
-    }
+  _wideSearchAllMatch(parent, value, searched=[]) {
+    return parent.children.flatMap(child => {
+      searched.concat(this._wideSearchAllMatch(child, value, searched));
 
-    return parent.children.flatMap(child =>
-      this._wideSearchAllMatch(child, value)
-    );
+      if(this.isEqual(child, value)){
+        searched.push(child);
+      }
+
+      return searched;
+    });
   }
 
   _wideSearchFirstMatch(parent, value) {
