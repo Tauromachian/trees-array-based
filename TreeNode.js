@@ -19,22 +19,33 @@ class TreeNode {
     this.children.push(treeNodeChildren);
     return 0;
   }
-  
-  removeChild(object){
-    if(!object){
+
+  removeChild(object) {
+    if (!object) {
       return -1;
     }
 
-    if(!this.hasChildren(object)){
+    if (!this.hasChildren(object)) {
       return 1;
     }
 
-    const index = this._indexOf(object);
-    return this._removeChildrenByIndex(index);
+    let index;
+
+    if(object instanceof TreeNode){
+      index = this._indexOf(object.value);
+    }else{
+      index = this._indexOf(object);
+    }
+
+    return this._removeChildrenByIndex(Number(index));
   }
 
-  _indexOf(object){
-    this.children.find(child => child.value === object);
+  _indexOf(object) {
+    for (const index in this.children) {
+      if (this.children[index].value === object) {
+        return index;
+      }
+    }
   }
 
   _removeChildrenByIndex(index) {
@@ -46,10 +57,9 @@ class TreeNode {
   }
 
   getChildren(value) {
-    if(!value){
+    if (!value) {
       return this.children;
-    }
-    else{
+    } else {
       return this.children.filter(child => child.value === value);
     }
   }
@@ -72,24 +82,24 @@ class TreeNode {
     return this.parent;
   }
 
-  setValue(value){
+  setValue(value) {
     this.value = value;
   }
 
-  getValue(){
+  getValue() {
     return this.value;
   }
 
-  hasChildren(node){
-    if(!node){
+  hasChildren(node) {
+    if (!node) {
       return false;
     }
 
-    if(node instanceof TreeNode){
+    if (node instanceof TreeNode) {
       return this.children.includes(node);
     }
 
-    if(this.getChild(node)){
+    if (this.getChild(node)) {
       return true;
     }
 
