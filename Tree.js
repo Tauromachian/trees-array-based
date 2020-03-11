@@ -77,9 +77,9 @@ class Tree {
         return parent.getChild(value);
       }
 
-      return parent.children.find(child =>
-        this._wideSearchFirstMatchRecursive(child, value)
-      );
+      return parent.children.map(child =>
+        this._wideSearchFirstMatch(child, value)
+      )[0];
     }
 
     return 1;
@@ -92,7 +92,7 @@ class Tree {
 
     if (parent.children) {
       return parent.children.find(child =>
-        this._wideSearchFirstMatch(child, value)
+        this._wideSearchFirstMatchRecursive(child, value)
       );
     }
 
