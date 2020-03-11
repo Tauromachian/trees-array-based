@@ -187,4 +187,20 @@ describe("TreeNode.js", function() {
       parentNode.hasChildren(childNode2).should.equal(false);
     });
   });
+
+  describe("removeChild", function () {
+    it("Should remove the node succesfully", function () {
+      let parentNode = new TreeNode("parent");
+      let childNode = new TreeNode("child");
+      let childNode1 = new TreeNode("child");
+      let childNode2 = new TreeNode("child");
+      parentNode.addChild(childNode);
+      parentNode.addChild(childNode1);
+      parentNode.addChild(childNode2);
+
+      parentNode.removeChild(childNode1);
+
+      parentNode.getChildren(childNode2.value).should.not.include(childNode2);
+    });
+  });
 });
