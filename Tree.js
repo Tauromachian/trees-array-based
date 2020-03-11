@@ -38,8 +38,6 @@ class Tree {
       return 1;
     }
 
-    console.log(node);
-    
     let nodeParent = node.getParent();
     nodeParent.removeChild(object);
 
