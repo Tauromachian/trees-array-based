@@ -9,20 +9,20 @@ describe("TreeNode.js", function() {
     expect(TreeNode).to.exist;
   });
 
-  describe("addChildren", function() {
+  describe("addChild", function() {
     it("Should return 0 Ok code", function() {
       let parentNode = new TreeNode("parent");
       let childNode = new TreeNode("child");
-      parentNode.addChildren(childNode).should.equal(0);
+      parentNode.addChild(childNode).should.equal(0);
     });
     it("Should return 1 Error code", function() {
       let parentNode = new TreeNode("parent");
-      parentNode.addChildren(null).should.equal(1);
+      parentNode.addChild(null).should.equal(1);
     });
     it("Should add the parent node to the child'is parent property", function() {
       let parentNode = new TreeNode("parent");
       let childNode = new TreeNode("child");
-      parentNode.addChildren(childNode);
+      parentNode.addChild(childNode);
       expect(childNode.parent).to.equal(parentNode);
     });
     it("Should insert correctly in the array of the node parent", function() {
@@ -30,7 +30,7 @@ describe("TreeNode.js", function() {
       let parentNode2 = parentNode;
       let childNode = new TreeNode("child");
       parentNode2.children.push(childNode);
-      parentNode.addChildren(childNode);
+      parentNode.addChild(childNode);
       expect(parentNode).to.equal(parentNode2);
     });
     it("Should insert correctly in the array of the node parent", function() {
@@ -40,8 +40,8 @@ describe("TreeNode.js", function() {
       let childNode2 = new TreeNode("child2");
       parentNode2.children.push(childNode);
       parentNode2.children.push(childNode2);
-      parentNode.addChildren(childNode);
-      parentNode.addChildren(childNode2);
+      parentNode.addChild(childNode);
+      parentNode.addChild(childNode2);
       expect(parentNode).to.equal(parentNode2);
     });
   });
@@ -64,8 +64,8 @@ describe("TreeNode.js", function() {
       let childNode = new TreeNode("child");
       let childNode0 = new TreeNode("child");
       let childNode2 = new TreeNode("child2");
-      parentNode.addChildren(childNode);
-      parentNode.addChildren(childNode2);
+      parentNode.addChild(childNode);
+      parentNode.addChild(childNode2);
 
       parentNode.getChildren("child").should.be.an("array");
     });
@@ -73,8 +73,8 @@ describe("TreeNode.js", function() {
       let parentNode = new TreeNode("parent");
       let childNode = new TreeNode("child");
       let childNode2 = new TreeNode("child2");
-      parentNode.addChildren(childNode);
-      parentNode.addChildren(childNode2);
+      parentNode.addChild(childNode);
+      parentNode.addChild(childNode2);
 
       parentNode.getChildren().should.equal(parentNode.children);
     });
@@ -82,8 +82,8 @@ describe("TreeNode.js", function() {
       let parentNode = new TreeNode("parent");
       let childNode = new TreeNode("child");
       let childNode2 = new TreeNode("child2");
-      parentNode.addChildren(childNode);
-      parentNode.addChildren(childNode2);
+      parentNode.addChild(childNode);
+      parentNode.addChild(childNode2);
 
       parentNode.getChildren("child").should.not.equal(parentNode.children);
     });
@@ -91,8 +91,8 @@ describe("TreeNode.js", function() {
       let parentNode = new TreeNode("parent");
       let childNode = new TreeNode("child");
       let childNode2 = new TreeNode("child2");
-      parentNode.addChildren(childNode);
-      parentNode.addChildren(childNode2);
+      parentNode.addChild(childNode);
+      parentNode.addChild(childNode2);
 
       let children = parentNode.getChildren("child");
 
@@ -104,9 +104,9 @@ describe("TreeNode.js", function() {
       let childNode1 = new TreeNode("child");
       let childNode2 = new TreeNode("child");
       let childNode3 = new TreeNode("child2");
-      parentNode.addChildren(childNode1);
-      parentNode.addChildren(childNode2);
-      parentNode.addChildren(childNode3);
+      parentNode.addChild(childNode1);
+      parentNode.addChild(childNode2);
+      parentNode.addChild(childNode3);
 
       let children = parentNode.getChildren("child");
 
@@ -131,7 +131,7 @@ describe("TreeNode.js", function() {
       let parentNode = new TreeNode("parent");
       let childNode = new TreeNode("child");
 
-      parentNode.addChildren(childNode);
+      parentNode.addChild(childNode);
       parentNode.getChild("child").should.equal(childNode);
     });
     it("Should return the first matching node", function() {
@@ -139,8 +139,8 @@ describe("TreeNode.js", function() {
       let childNode = new TreeNode("child");
       let childNode2 = new TreeNode("child");
 
-      parentNode.addChildren(childNode);
-      parentNode.addChildren(childNode2);
+      parentNode.addChild(childNode);
+      parentNode.addChild(childNode2);
       parentNode.getChild("child").should.not.be.equal(childNode2);
     });
     it("Should return the first matching node", function() {
@@ -148,8 +148,8 @@ describe("TreeNode.js", function() {
       let childNode = new TreeNode("child");
       let childNode2 = new TreeNode("child");
 
-      parentNode.addChildren(childNode);
-      parentNode.addChildren(childNode2);
+      parentNode.addChild(childNode);
+      parentNode.addChild(childNode2);
       parentNode.getChild("child").should.equal(childNode);
     });
   });
@@ -161,7 +161,7 @@ describe("TreeNode.js", function() {
     it("Should return true", function() {
       let parentNode = new TreeNode("parent");
       let childNode = new TreeNode("child");
-      parentNode.addChildren(childNode);
+      parentNode.addChild(childNode);
 
       parentNode.hasChildren(childNode).should.equal(true);
     });
@@ -170,9 +170,9 @@ describe("TreeNode.js", function() {
       let childNode = new TreeNode("child");
       let childNode1 = new TreeNode("child");
       let childNode2 = new TreeNode("child");
-      parentNode.addChildren(childNode);
-      parentNode.addChildren(childNode1);
-      parentNode.addChildren(childNode2);
+      parentNode.addChild(childNode);
+      parentNode.addChild(childNode1);
+      parentNode.addChild(childNode2);
 
       parentNode.hasChildren(childNode1).should.equal(true);
     });
@@ -181,8 +181,8 @@ describe("TreeNode.js", function() {
       let childNode = new TreeNode("child");
       let childNode1 = new TreeNode("child");
       let childNode2 = new TreeNode("child");
-      parentNode.addChildren(childNode);
-      parentNode.addChildren(childNode1);
+      parentNode.addChild(childNode);
+      parentNode.addChild(childNode1);
 
       parentNode.hasChildren(childNode2).should.equal(false);
     });
