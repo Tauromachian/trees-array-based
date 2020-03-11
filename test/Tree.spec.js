@@ -114,6 +114,25 @@ describe("Tree.js", function() {
       let tree = new Tree();
       expect(tree.getChildrenOf("testError")).to.equal(0);
     });
+
+    it("Should contain the children nodes", function () {
+      let tree = new Tree();
+      let treeNode1 = new TreeNode("testName1");
+      let treeNode2 = new TreeNode("testName2");
+      let treeNode3 = new TreeNode("testName2");
+      let treeNode4 = new TreeNode("testName4");
+
+
+      treeNode1.addChildren(treeNode2);
+      treeNode1.addChildren(treeNode4);
+      treeNode2.addChildren(treeNode3);
+      tree.head.addChildren(treeNode1);
+
+      tree.getChildrenOf("testName1").should.include(treeNode2);
+      tree.getChildrenOf("testName1").should.include(treeNode4);
+      tree.getChildrenOf("testName1").should.not.include(treeNode1);
+      tree.getChildrenOf("testName1").should.not.include(treeNode3);
+    });
   });
 
   describe("addChildren", function() {
