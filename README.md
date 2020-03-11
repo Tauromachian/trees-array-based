@@ -1,5 +1,7 @@
 # A trees datastructure based on arrays.
 
+The objective of this module is to provide a basic and generic Tree data structure and some of its derivatives.
+
 This package has three main object classes for now.
 
 ###### TreeNode:
@@ -20,6 +22,7 @@ Here father.child is the child of the father and will be inserted as a child of 
 This Tree does'nt accepts repeated values.
 
 ## How to import:
+```
 const TreeNode = require("trees-array-based").TreeNode;
 const Tree = require("trees-array-based").Tree;
 const NameHierarchicalTree = require("trees-array-based").NameHierarchicalTree;
@@ -27,8 +30,9 @@ const NameHierarchicalTree = require("trees-array-based").NameHierarchicalTree;
 const node1 = new TreeNode("test");
 const tree = new Tree();
 const nameTree = new NameHierarchicalTree();
-
-How to use:
+```
+## How to use:
+```
 const TreeNode = require("trees-array-based").TreeNode;
 const NameHierarchicalTree = require("trees-array-based").NameHierarchicalTree;
 
@@ -37,3 +41,4 @@ const node2 = new TreeNode("test");
 const tree = new NameHierarchicalTree();
 tree.addChildren(node1);
 tree.addChildren(node2);
+```
