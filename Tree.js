@@ -8,7 +8,7 @@ class Tree {
     this.head = new TreeNode(null);
   }
 
-  addChildren(object, nodeParent) {
+  addChild(object, nodeParent) {
     if (!object) {
       return 1;
     }
