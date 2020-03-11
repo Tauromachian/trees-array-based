@@ -87,7 +87,26 @@ describe("Tree.js", function() {
 
       expect(tree._wideSearchAllMatch(treeNode, "testError")).to.be.empty;
     });
-    
+    it("Should return all the matching nodes", function() {
+      let tree = new Tree();
+      let treeNode1 = new TreeNode("testName1");
+      let treeNode2 = new TreeNode("testName2");
+      let treeNode3 = new TreeNode("testName2");
+      let treeNode4 = new TreeNode("testName2");
+      let treeNode5 = new TreeNode("testName2");
+      treeNode1.addChildren(treeNode2);
+      treeNode1.addChildren(treeNode3);
+      treeNode2.addChildren(treeNode3);
+      treeNode2.addChildren(treeNode4);
+      treeNode3.addChildren(treeNode5);
+      tree.head.addChildren(treeNode1);
+
+      tree._wideSearchAllMatch(treeNode1, "testName2").should.include(treeNode2);
+      tree._wideSearchAllMatch(treeNode1, "testName2").should.include(treeNode3);
+      tree._wideSearchAllMatch(treeNode1, "testName2").should.include(treeNode4);
+      tree._wideSearchAllMatch(treeNode1, "testName2").should.include(treeNode5);
+      tree._wideSearchAllMatch(treeNode1, "testName2").should.not.include(treeNode1);
+    });
   });
 
 
