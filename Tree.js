@@ -58,7 +58,9 @@ class Tree {
     return nodeParent.getChildren();
   }
 
-  getNode() {}
+  getNode(object) {
+    return this._wideSearchFirstMatch(this.head, object);
+  }
 
   _addChildrenTreeNode(treeNode, nodeParent) {
     if (!nodeParent) {

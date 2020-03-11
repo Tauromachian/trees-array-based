@@ -101,27 +101,36 @@ describe("Tree.js", function() {
       treeNode3.addChild(treeNode5);
       tree.head.addChild(treeNode1);
 
-      tree._wideSearchAllMatch(treeNode1, "testName2").should.include(treeNode2);
-      tree._wideSearchAllMatch(treeNode1, "testName2").should.include(treeNode3);
-      tree._wideSearchAllMatch(treeNode1, "testName2").should.include(treeNode4);
-      tree._wideSearchAllMatch(treeNode1, "testName2").should.include(treeNode5);
-      tree._wideSearchAllMatch(treeNode1, "testName2").should.not.include(treeNode1);
+      tree
+        ._wideSearchAllMatch(treeNode1, "testName2")
+        .should.include(treeNode2);
+      tree
+        ._wideSearchAllMatch(treeNode1, "testName2")
+        .should.include(treeNode3);
+      tree
+        ._wideSearchAllMatch(treeNode1, "testName2")
+        .should.include(treeNode4);
+      tree
+        ._wideSearchAllMatch(treeNode1, "testName2")
+        .should.include(treeNode5);
+      tree
+        ._wideSearchAllMatch(treeNode1, "testName2")
+        .should.not.include(treeNode1);
     });
   });
 
-  describe("getChildOf", function () {
-    it("Should return an array", function () {
+  describe("getChildOf", function() {
+    it("Should return an array", function() {
       let tree = new Tree();
       expect(tree.getChildOf("testError")).to.equal(0);
     });
 
-    it("Should contain the children nodes", function () {
+    it("Should contain the children nodes", function() {
       let tree = new Tree();
       let treeNode1 = new TreeNode("testName1");
       let treeNode2 = new TreeNode("testName2");
       let treeNode3 = new TreeNode("testName2");
       let treeNode4 = new TreeNode("testName4");
-
 
       treeNode1.addChild(treeNode2);
       treeNode1.addChild(treeNode4);
@@ -150,7 +159,7 @@ describe("Tree.js", function() {
       let tree = new Tree();
       tree.addChild().should.equal(1);
     });
-    it("Should insert correctly the node", function () {
+    it("Should insert correctly the node", function() {
       let tree = new Tree();
       let treeNode1 = new TreeNode("testName1");
       let treeNode2 = new TreeNode("testName2");
@@ -160,13 +169,13 @@ describe("Tree.js", function() {
       tree.getChildOf().should.include(treeNode1);
       tree.getChildOf().should.include(treeNode2);
     });
-    it("Should insert correctly the node", function () {
+    it("Should insert correctly the node", function() {
       let tree = new Tree();
       let treeNode1 = new TreeNode("testName1");
       let treeNode2 = new TreeNode("testName2");
       let treeNode3 = new TreeNode("testName2");
       let treeNode4 = new TreeNode("testName4");
-      
+
       tree.addChild(treeNode1);
       tree.addChild(treeNode2);
       tree.addChild(treeNode3, treeNode1);
@@ -176,12 +185,11 @@ describe("Tree.js", function() {
       tree.getChildOf().should.include(treeNode2);
       tree.getChildOf("testName1").should.include(treeNode3);
       tree.getChildOf("testName1").should.include(treeNode4);
-
     });
   });
 
-  describe("removeChild", function () {
-    it("Should remove the node succesfully", function () {
+  describe("removeChild", function() {
+    it("Should remove the node succesfully", function() {
       let tree = new Tree();
       let treeNode1 = new TreeNode("testName1");
       let treeNode2 = new TreeNode("testName2");
@@ -193,6 +201,21 @@ describe("Tree.js", function() {
 
       tree.getChildOf().should.not.include(treeNode1);
       tree.getChildOf().should.include(treeNode2);
+    });
+  });
+
+  describe("getNode", function() {
+    it("Should return the node equivalent to the value", function() {
+      let tree = new Tree();
+
+      let treeNode1 = new TreeNode("testName1");
+      let treeNode2 = new TreeNode("testName2");
+
+      tree.addChild(treeNode1);
+      tree.addChild(treeNode2, treeNode1);
+
+      tree.getNode("testName1").should.equal(treeNode1);
+      tree.getNode("testName2").should.equal(treeNode2);
     });
   });
 });
