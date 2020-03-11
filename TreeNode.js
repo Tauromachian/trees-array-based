@@ -78,6 +78,8 @@ class TreeNode {
     if(this.getChild(node)){
       return true;
     }
+
+    return false;
   }
 }
 module.exports = TreeNode;
