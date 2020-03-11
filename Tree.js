@@ -85,20 +85,6 @@ class Tree {
     return 1;
   }
 
-  _wideSearchFirstMatchRecursive(parent, value) {
-    if (this.isEqual(parent, value)) {
-      return true;
-    }
-
-    if (parent.children) {
-      return parent.children.find(child =>
-        this._wideSearchFirstMatchRecursive(child, value)
-      );
-    }
-
-    return;
-  }
-
   isEqual(nodeOne, nodeTwo) {
     if(nodeOne instanceof TreeNode && nodeTwo instanceof TreeNode){
       return nodeOne.value === nodeTwo.value;
