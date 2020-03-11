@@ -10,7 +10,7 @@ class TreeNode {
    * This method adds a children to the TreeNode
    * @param  {TreeNode} treeNodeChildren The tree node children to add
    */
-  addChildren(treeNodeChildren) {
+  addChild(treeNodeChildren) {
     if (!(treeNodeChildren instanceof TreeNode)) {
       return 1;
     }
