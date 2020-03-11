@@ -24,7 +24,16 @@ class Tree {
   removeChildren(object) {}
 
   getChildrenOf(object) {
-    const nodeParent = this._wideSearchFirstMatch(object);
+    if(!object){
+      return this.head.getChildren();
+    }
+
+    const nodeParent = this._wideSearchFirstMatch(this.head, object);
+
+    if(!nodeParent){
+      return 0;
+    }
+
     return nodeParent.getChildren();
   }
 
