@@ -200,7 +200,7 @@ describe("TreeNode.js", function() {
 
       parentNode.removeChild(childNode1);
 
-      parentNode.getChildren(childNode2.value).should.not.include(childNode2);
+      parentNode.getChildren(parentNode.value).should.not.include(childNode1);
     });
   });
 });
