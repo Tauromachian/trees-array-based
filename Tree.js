@@ -23,7 +23,10 @@ class Tree {
 
   removeChildren(object) {}
 
-  getChildrenOf(object) {}
+  getChildrenOf(object) {
+    const nodeParent = this._wideSearchFirstMatch(object);
+    return nodeParent.getChildren();
+  }
 
   getNode() {}
 
