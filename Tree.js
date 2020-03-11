@@ -21,16 +21,11 @@ class Tree {
     return 0;
   }
 
-  removeChildren(object){
-  }
+  removeChildren(object) {}
 
-  getChildrenOf(object){
+  getChildrenOf(object) {}
 
-  }
-
-  getNode(){
-
-  }
+  getNode() {}
 
   _addChildrenTreeNode(treeNode, nodeParent) {
     if (!nodeParent) {
@@ -58,13 +53,9 @@ class Tree {
       return parent;
     }
 
-    if (parent.children) {
-      return parent.children.map(child =>
-        this._wideSearchAllMatch(child, value)
-      );
-    }
-
-    return;
+    return parent.children.flatMap(child =>
+      this._wideSearchAllMatch(child, value)
+    );
   }
 
   _wideSearchFirstMatch(parent, value) {
@@ -73,7 +64,7 @@ class Tree {
     }
 
     if (parent.children) {
-      if(parent.hasChildren(value)){
+      if (parent.hasChildren(value)) {
         return parent.getChild(value);
       }
 
@@ -86,15 +77,15 @@ class Tree {
   }
 
   isEqual(nodeOne, nodeTwo) {
-    if(nodeOne instanceof TreeNode && nodeTwo instanceof TreeNode){
+    if (nodeOne instanceof TreeNode && nodeTwo instanceof TreeNode) {
       return nodeOne.value === nodeTwo.value;
     }
-    if(!(nodeOne instanceof TreeNode || nodeTwo instanceof TreeNode)){
+    if (!(nodeOne instanceof TreeNode || nodeTwo instanceof TreeNode)) {
       return nodeOne === nodeTwo;
     }
-    if(nodeOne instanceof TreeNode){
+    if (nodeOne instanceof TreeNode) {
       return nodeOne.value === nodeTwo;
-    }else{
+    } else {
       return nodeOne === nodeTwo.value;
     }
   }
