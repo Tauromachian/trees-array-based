@@ -29,9 +29,9 @@ class Tree {
     let node;
     
     if(object instanceof TreeNode){
-      node = this._wideSearchFirstMatch(this.head, object.getValue());
+      node = this._deepSearchFirstMatch(this.head, object.getValue());
     }else{
-      node = this._wideSearchFirstMatch(this.head, object);
+      node = this._deepSearchFirstMatch(this.head, object);
     }
 
     if(!node){
@@ -49,7 +49,7 @@ class Tree {
       return this.head.getChildren();
     }
 
-    const nodeParent = this._wideSearchFirstMatch(this.head, object);
+    const nodeParent = this._deepSearchFirstMatch(this.head, object);
 
     if(!nodeParent){
       return 0;
@@ -59,7 +59,7 @@ class Tree {
   }
 
   getNode(object) {
-    return this._wideSearchFirstMatch(this.head, object);
+    return this._deepSearchFirstMatch(this.head, object);
   }
 
   _addChildrenTreeNode(treeNode, nodeParent) {
@@ -68,7 +68,7 @@ class Tree {
       return 1;
     }
 
-    let parentNode = this._wideSearchFirstMatch(this.head, nodeParent.value);
+    let parentNode = this._deepSearchFirstMatch(this.head, nodeParent.value);
     parentNode.addChild(treeNode);
 
     return 1;
@@ -83,9 +83,9 @@ class Tree {
     this.head.addChild(node);
   }
 
-  _wideSearchAllMatch(parent, value, searched=[]) {
+  _deepSearchAllMatch(parent, value, searched=[]) {
     return parent.children.flatMap(child => {
-      searched.concat(this._wideSearchAllMatch(child, value, searched));
+      searched.concat(this._deepSearchAllMatch(child, value, searched));
 
       if(this.isEqual(child, value)){
         searched.push(child);
@@ -95,7 +95,7 @@ class Tree {
     });
   }
 
-  _wideSearchFirstMatch(parent, value) {
+  _deepSearchFirstMatch(parent, value) {
     if (this.isEqual(parent, value)) {
       return parent;
     }
@@ -105,7 +105,7 @@ class Tree {
     }
 
     return parent.children.flatMap(child =>
-      this._wideSearchFirstMatch(child, value)
+      this._deepSearchFirstMatch(child, value)
     )[0];
   }
 
