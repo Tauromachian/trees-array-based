@@ -79,6 +79,19 @@ describe("Tree.js", function() {
     });
   });
 
+  describe("_wideSearchAllMatch", function() {
+    it("Should be empty", function() {
+      let tree = new Tree();
+      let treeNode = new TreeNode("testName");
+      tree.head.addChildren();
+
+      expect(tree._wideSearchAllMatch(treeNode, "testError")).to.be.empty;
+    });
+    
+  });
+
+
+
   describe("addChildren", function() {
     it("Should return a number", function() {
       let tree = new Tree();
