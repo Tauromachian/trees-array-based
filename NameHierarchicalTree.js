@@ -34,7 +34,7 @@ class NameHierarchichalTree extends Tree {
     }
     parentName = parentName.substring(0, parentName.length - 1);
 
-    let node = this.searchNodeByName(parentName);
+    let node = this._searchNodeByName(parentName);
 
     if(!node){
       return 0;
@@ -50,7 +50,7 @@ class NameHierarchichalTree extends Tree {
    * @param  {} childrenName Name of the node to remove
    */
   removeChild(childrenName) {
-    let node = this.searchNodeByName(childrenName);
+    let node = this._searchNodeByName(childrenName);
     let parentNode = node.getParent();
 
     const index = parentNode.children.indexOf(node);
@@ -63,7 +63,7 @@ class NameHierarchichalTree extends Tree {
   }
 
   getNodeByName(nodeName) {
-    return this.searchNodeByName(nodeName);
+    return this._searchNodeByName(nodeName);
   }
 
   /**
