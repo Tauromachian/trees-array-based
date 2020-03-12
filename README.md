@@ -27,6 +27,7 @@ const TreeNode = require("trees-array-based").TreeNode;
 const Tree = require("trees-array-based").Tree;
 const NameHierarchicalTree = require("trees-array-based").NameHierarchicalTree;
 ```
+
 ## How to use:
 ###### TreeNode
 TreeNode is a perfectly independent class that can be use to create your own datastructure.
@@ -68,4 +69,28 @@ tree.addChild(node4, node3);
 
 tree.removeChilde(node3);
 tree.removeChilde("testValue4");
+```
+###### NameHierarchicalTree:
+NameHierarchicalTree creates a tree based on a hierarchical name structure using dots.
+Example
+parent
+
+This are the children:
+parent.child1
+parent.child2
+
+```
+const NameHierarchicalTree = require("trees-array-based").NameHierarchicalTree;
+
+let nameTree = new NameHierarchicalTree();
+
+nameTree.addChildren("parent");
+nameTree.addChildren("parent.child1");
+nameTree.addChildren("parent.child2");
+
+nameTree.removeChildren("parent.child1");
+
+nameTree.getChildrenOf("parent");
+
+let treeNode = nameTree.getNodeByName("parent");
 ```
