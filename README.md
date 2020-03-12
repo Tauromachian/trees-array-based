@@ -34,14 +34,38 @@ TreeNode has mainly two things a value and children.
 ```
 const TreeNode = require("trees-array-based").TreeNode;
 
-const node1 = new TreeNode("testValue1");
-const node2 = new TreeNode("testValue2");
-const node3 = new TreeNode("testValue3");
-const node4 = new TreeNode("testValue4");
+let node1 = new TreeNode("testValue1");
+let node2 = new TreeNode("testValue2");
+let node3 = new TreeNode("testValue3");
+let node4 = new TreeNode("testValue4");
 
 node1.addChild(node2);
 node2.addChild(node3);
 node3.addChild(node4);
 
 node2.removeChild(node3);
+```
+###### Tree:
+Tree is the most generic part of this module. It abstracts the work with TreeNodes.
+Nodes can be repeated.
+```
+const TreeNode = require("trees-array-based").Tree;
+const TreeNode = require("trees-array-based").TreeNode;
+
+let tree = new Tree();
+
+let node1 = new TreeNode("testValue1");
+let node2 = new TreeNode("testValue2");
+let node3 = new TreeNode("testValue3");
+let node4 = new TreeNode("testValue4");
+
+tree.addChild(node1);
+tree.addChild(node2);
+
+tree.addChild(node3, node2);
+tree.addChild(node4, node2);
+tree.addChild(node4, node3);
+
+tree.removeChilde(node3);
+tree.removeChilde("testValue4");
 ```
