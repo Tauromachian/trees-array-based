@@ -22,7 +22,23 @@ describe("NameHierarchicalTree.js", function() {
       nameTree.head.children[0].value.should.equal("parent");
       nameTree.head.children[0].children[0].value.should.equal("parent.child1");
       nameTree.head.children[0].children[1].value.should.equal("parent.child2");
-      nameTree.head.children[0].children[0].children[0].value.should.equal("parent.child1.child1-1");
+      nameTree.head.children[0].children[0].children[0].value.should.equal(
+        "parent.child1.child1-1"
+      );
+    });
+  });
+
+  describe("removeChild", function() {
+    it("Should remove succesfully", function() {
+      let nameTree = new NameHierarchicalTree();
+
+      nameTree.addChild("parent");
+      nameTree.addChild("parent.child1");
+      nameTree.addChild("parent.child2");
+      nameTree.addChild("parent.child1.child1-1");
+
+      nameTree.removeChild("parent");
+      expect(nameTree.head.children).to.be.empty;
     });
   });
 });
