@@ -76,8 +76,12 @@ describe("NameHierarchicalTree.js", function() {
       nameTree.addChild("parent.child2");
       nameTree.addChild("parent.child1.child1-1");
 
+
+      nameTree.removeChild("parent.child1.child1-1");
+      nameTree.getChildrenOf("parent.child1").should.be.empty;
+      
       nameTree.removeChild("parent");
-      expect(nameTree.head.children).to.be.empty;
+      nameTree.getNodeByName("parent").should.equal(0);
     });
   });
 });
