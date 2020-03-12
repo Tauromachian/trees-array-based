@@ -47,14 +47,14 @@ class NameHierarchichalTree extends Tree {
   
   /**
    * Removes a node
-   * @param  {} childrenName Name of the node to remove
+   * @param  {String} childrenName Name of the node to remove
    */
   removeChild(childrenName) {
-    let node = this._searchNodeByName(childrenName);
+    let node = this.getNodeByName(childrenName);
+    console.log(node);
+    
     let parentNode = node.getParent();
-
-    const index = parentNode.children.indexOf(node);
-    parentNode.removeChild(parseInt(index));
+    parentNode.removeChild(node);
   }
 
   getChildrenOf(childrenName) {
