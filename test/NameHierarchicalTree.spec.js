@@ -28,6 +28,22 @@ describe("NameHierarchicalTree.js", function() {
     });
   });
 
+  describe("getNodeByName", function () {
+    it("Should return the node given the name", function () {
+      let nameTree = new NameHierarchicalTree();
+
+      nameTree.addChild("parent");
+      nameTree.addChild("parent.child1");
+      nameTree.addChild("parent.child2");
+      nameTree.addChild("parent.child1.child1-1");
+
+      nameTree.getNodeByName("parent").value.should.equal("parent");
+      nameTree.getNodeByName("parent.child1").value.should.equal("parent.child1");
+      nameTree.getNodeByName("parent.child2").value.should.equal("parent.child2");
+      nameTree.getNodeByName("parent.child1.child1-1").value.should.equal("parent.child1.child1-1");
+    });
+  });
+
   describe("removeChild", function() {
     it("Should remove succesfully", function() {
       let nameTree = new NameHierarchicalTree();
