@@ -70,7 +70,7 @@ class NameHierarchichalTree extends Tree {
    * Searchs in the tree a node with the name providen
    * @param  {String} nodeName name of the node to search
    */
-  searchNodeByName(nodeName) {
+  _searchNodeByName(nodeName) {
     let node = this._recursiveSearch(this.head, nodeName);
 
     if (node) {
