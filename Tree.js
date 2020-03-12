@@ -44,7 +44,7 @@ class Tree {
     return 0;
   }
 
-  getChildOf(object) {
+  getChildrenOf(object) {
     if(!object){
       return this.head.getChildren();
     }
