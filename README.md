@@ -26,19 +26,22 @@ This Tree does'nt accepts repeated values.
 const TreeNode = require("trees-array-based").TreeNode;
 const Tree = require("trees-array-based").Tree;
 const NameHierarchicalTree = require("trees-array-based").NameHierarchicalTree;
-
-const node1 = new TreeNode("test");
-const tree = new Tree();
-const nameTree = new NameHierarchicalTree();
 ```
 ## How to use:
+###### TreeNode
+TreeNode is a perfectly independent class that can be use to create your own datastructure.
+TreeNode has mainly two things a value and children.
 ```
 const TreeNode = require("trees-array-based").TreeNode;
-const NameHierarchicalTree = require("trees-array-based").NameHierarchicalTree;
 
-const node1 = new TreeNode("test");
-const node2 = new TreeNode("test");
-const tree = new NameHierarchicalTree();
-tree.addChildren(node1);
-tree.addChildren(node2);
+const node1 = new TreeNode("testValue1");
+const node2 = new TreeNode("testValue2");
+const node3 = new TreeNode("testValue3");
+const node4 = new TreeNode("testValue4");
+
+node1.addChild(node2);
+node2.addChild(node3);
+node3.addChild(node4);
+
+node2.removeChild(node3);
 ```
