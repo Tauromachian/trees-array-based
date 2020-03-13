@@ -4,7 +4,7 @@ The objective of this module is to provide a basic and generic Tree data structu
 
 This package has three main object classes for now.
 
-###### TreeNode:
+#### TreeNode:
 The nodes of the tree. 
 This class has children and a reference to the parent.
 You can use them directly for creating your own Tree structure based on array.
@@ -67,8 +67,8 @@ tree.addChild(node3, node2);
 tree.addChild(node4, node2);
 tree.addChild(node4, node3);
 
-tree.removeChilde(node3);
-tree.removeChilde("testValue4");
+tree.removeChild(node3);
+tree.removeChild("testValue4");
 ```
 ###### NameHierarchicalTree:
 NameHierarchicalTree creates a tree based on a hierarchical name structure using dots.
@@ -84,11 +84,11 @@ const NameHierarchicalTree = require("trees-array-based").NameHierarchicalTree;
 
 let nameTree = new NameHierarchicalTree();
 
-nameTree.addChildren("parent");
-nameTree.addChildren("parent.child1");
-nameTree.addChildren("parent.child2");
+nameTree.addChild("parent");
+nameTree.addChild("parent.child1");
+nameTree.addChild("parent.child2");
 
-nameTree.removeChildren("parent.child1");
+nameTree.removeChild("parent.child1");
 
 nameTree.getChildrenOf("parent");
 
