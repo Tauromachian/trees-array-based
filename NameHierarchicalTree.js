@@ -2,7 +2,6 @@ const Tree = require("./Tree");
 const TreeNode = require("./TreeNode");
 const Validator = require("./Validator");
 
-
 /**
  * This tree is'nt generic, is specialized to have a name hierarchy.
  */
@@ -29,14 +28,14 @@ class NameHierarchichalTree extends Tree {
 
     let parentName = "";
 
-    for (let i = 0; i < (nameArray.length - 1); i++) {
-      parentName = parentName.concat(nameArray[i],".");      
+    for (let i = 0; i < nameArray.length - 1; i++) {
+      parentName = parentName.concat(nameArray[i], ".");
     }
     parentName = parentName.substring(0, parentName.length - 1);
 
-    let node = this._searchNodeByName(parentName);
+    let node = this.getNodeByName(parentName);
 
-    if(!node){
+    if (!node) {
       return 0;
     }
 
@@ -44,15 +43,12 @@ class NameHierarchichalTree extends Tree {
     return node;
   }
 
-  
   /**
    * Removes a node
    * @param  {String} childrenName Name of the node to remove
    */
   removeChild(childrenName) {
     let node = this.getNodeByName(childrenName);
-    console.log(node);
-    
     let parentNode = node.getParent();
     parentNode.removeChild(node);
   }
@@ -63,31 +59,32 @@ class NameHierarchichalTree extends Tree {
   }
 
   getNodeByName(nodeName) {
-    return this._searchNodeByName(nodeName);
+    const node = this._searchNodeByName(this.head, nodeName);
+    if (node) {
+      return node;
+    }
+    return 0;
   }
 
   /**
    * Searchs in the tree a node with the name providen
    * @param  {String} nodeName name of the node to search
    */
-  _searchNodeByName(nodeName) {
-    let node = this._recursiveSearch(this.head, nodeName);
-
-    if (node) {
-      return node;
-    } else return 0;
+  _searchNodeByName(parent, nodeName) {
+    const children = this._searchNodeByNameRecursive(parent, nodeName);
+    return children.filter(child => child)[0];
   }
 
-  _recursiveSearch(head, nodeName) {
-    let parent;
-    let children = head.children;
-    for (const key in children) {
-      parent = this._search(children[key], nodeName);
-      if (parent){
-        return parent;
+  _searchNodeByNameRecursive(parent, nodeName) {
+    return parent.children.flatMap(child => {
+      if (child.value === nodeName) {
+        return child;
       }
-    }
-    return null;
+
+      if (nodeName.includes(child.value)) {
+        return this._searchNodeByName(child, nodeName);
+      }
+    });
   }
 
   _search(parent, nodeName) {
