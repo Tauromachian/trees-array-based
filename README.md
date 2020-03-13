@@ -9,11 +9,11 @@ The nodes of the tree.
 This class has children and a reference to the parent.
 You can use them directly for creating your own Tree structure based on array.
 
-###### Tree:
+#### Tree:
 A generic Tree estructure.
 Provides the validator and the methods 
 
-###### NameHierarchicalTree:
+#### NameHierarchicalTree:
 A Tree datastructure that provides a hierarchi to the way that nodes are inserted based on the values of the nodes.
 Example:
 "father"
@@ -29,7 +29,7 @@ const NameHierarchicalTree = require("trees-array-based").NameHierarchicalTree;
 ```
 
 ## How to use:
-###### TreeNode
+#### TreeNode
 TreeNode is a perfectly independent class that can be use to create your own datastructure.
 TreeNode has mainly two things a value and children.
 ```
@@ -46,7 +46,7 @@ node3.addChild(node4);
 
 node2.removeChild(node3);
 ```
-###### Tree:
+#### Tree:
 Tree is the most generic part of this module. It abstracts the work with TreeNodes.
 Nodes can be repeated.
 ```
@@ -70,7 +70,7 @@ tree.addChild(node4, node3);
 tree.removeChild(node3);
 tree.removeChild("testValue4");
 ```
-###### NameHierarchicalTree:
+#### NameHierarchicalTree:
 NameHierarchicalTree creates a tree based on a hierarchical name structure using dots.
 Example
 parent
