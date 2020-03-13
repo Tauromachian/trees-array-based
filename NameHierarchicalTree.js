@@ -12,35 +12,28 @@ class NameHierarchichalTree extends Tree {
   /**
    * Searchs in the tree hierarchy and adds a new node in its corresponing place
    * Inserts a node to the end of the name hierarchy
-   * @param  {String} nodeName The name of the node thats gonna be inserted
+   * @param  {String} childrenName The name of the node thats gonna be inserted
    */
   addChild(childrenName) {
     if (!Validator.isString(childrenName)) {
       return -1;
     }
 
-    let nameArray = childrenName.split(".");
-
-    if (nameArray.length <= 1) {
+    const indexOfLastDot = childrenName.lastIndexOf(".");
+    if (indexOfLastDot === -1){
       this.head.addChild(new TreeNode(childrenName, this.head));
-      return this.head;
-    }
-
-    let parentName = "";
-
-    for (let i = 0; i < nameArray.length - 1; i++) {
-      parentName = parentName.concat(nameArray[i], ".");
-    }
-    parentName = parentName.substring(0, parentName.length - 1);
-
-    let node = this.getNodeByName(parentName);
-
-    if (!node) {
       return 0;
     }
 
+    const parentName = childrenName.substring(0, indexOfLastDot);
+    let node = this.getNodeByName(parentName);
+
+    if (!node) {
+      return 1;
+    }
+
     node.addChild(new TreeNode(childrenName, node));
-    return node;
+    return 0;
   }
 
   /**
