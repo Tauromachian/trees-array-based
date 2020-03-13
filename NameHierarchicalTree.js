@@ -53,11 +53,19 @@ class NameHierarchichalTree extends Tree {
     parentNode.removeChild(node);
   }
 
+  /**
+   * Gets the children of the node name passed as a parameter
+   * @param {String} childrenName The name of the parameter
+   */
   getChildrenOf(childrenName) {
     let node = this.getNodeByName(childrenName);
     return node.getChildren();
   }
 
+  /**
+   * Searchs in the tree a node with the name providen
+   * @param  {String} nodeName name of the node to search
+   */
   getNodeByName(nodeName) {
     const node = this._searchNodeByName(this.head, nodeName);
     if (node) {
@@ -65,11 +73,7 @@ class NameHierarchichalTree extends Tree {
     }
     return 0;
   }
-
-  /**
-   * Searchs in the tree a node with the name providen
-   * @param  {String} nodeName name of the node to search
-   */
+  
   _searchNodeByName(parent, nodeName) {
     const children = this._searchNodeByNameRecursive(parent, nodeName);
     return children.filter(child => child)[0];
