@@ -74,22 +74,22 @@ class NameHierarchichalTree extends Tree {
 
   _searchNodeByNameRecursive(parent, nodeName) {
     return parent.children.flatMap(child => {
-      if (child.value === nodeName) {
+      if (child.name === nodeName) {
         return child;
       }
 
-      if (nodeName.includes(child.value)) {
+      if (nodeName.includes(child.name)) {
         return this._searchNodeByName(child, nodeName);
       }
     });
   }
 
   _search(parent, nodeName) {
-    if (parent.value == nodeName) {
+    if (parent.name == nodeName) {
       return parent;
     }
     for (const key in parent.children) {
-      if (nodeName.includes(parent.children[key].value)) {
+      if (nodeName.includes(parent.children[key].name)) {
         return this._search(parent.children[key], nodeName);
       }
     }

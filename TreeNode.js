@@ -1,8 +1,8 @@
 const Validator = require("./Validator");
 
 class TreeNode {
-  constructor(value, parent) {
-    this.value = value;
+  constructor(name, parent) {
+    this.name = name;
     this.parent = parent;
     this.children = [];
   }
@@ -32,7 +32,7 @@ class TreeNode {
     let index;
 
     if(object instanceof TreeNode){
-      index = this._indexOf(object.value);
+      index = this._indexOf(object.name);
     }else{
       index = this._indexOf(object);
     }
@@ -42,7 +42,7 @@ class TreeNode {
 
   _indexOf(object) {
     for (const index in this.children) {
-      if (this.children[index].value === object) {
+      if (this.children[index].name === object) {
         return index;
       }
     }
@@ -56,16 +56,16 @@ class TreeNode {
     return 0;
   }
 
-  getChildren(value) {
-    if (!value) {
+  getChildren(name) {
+    if (!name) {
       return this.children;
     } else {
-      return this.children.filter(child => child.value === value);
+      return this.children.filter(child => child.name === name);
     }
   }
 
-  getChild(value) {
-    return this.children.find(child => child.value === value);
+  getChild(name) {
+    return this.children.find(child => child.name === name);
   }
 
   /**
@@ -82,12 +82,12 @@ class TreeNode {
     return this.parent;
   }
 
-  setValue(value) {
-    this.value = value;
+  setValue(name) {
+    this.name = name;
   }
 
   getValue() {
-    return this.value;
+    return this.name;
   }
 
   hasChildren(node) {

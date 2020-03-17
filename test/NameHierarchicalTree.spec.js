@@ -19,10 +19,10 @@ describe("NameHierarchicalTree.js", function() {
       nameTree.addChild("parent.child2");
       nameTree.addChild("parent.child1.child1-1");
 
-      nameTree.head.children[0].value.should.equal("parent");
-      nameTree.head.children[0].children[0].value.should.equal("parent.child1");
-      nameTree.head.children[0].children[1].value.should.equal("parent.child2");
-      nameTree.head.children[0].children[0].children[0].value.should.equal(
+      nameTree.head.children[0].name.should.equal("parent");
+      nameTree.head.children[0].children[0].name.should.equal("parent.child1");
+      nameTree.head.children[0].children[1].name.should.equal("parent.child2");
+      nameTree.head.children[0].children[0].children[0].name.should.equal(
         "parent.child1.child1-1"
       );
     });
@@ -37,16 +37,16 @@ describe("NameHierarchicalTree.js", function() {
       nameTree.addChild("parent.child2");
       nameTree.addChild("parent.child1.child1-1");
 
-      nameTree.getNodeByName("parent").value.should.equal("parent");
+      nameTree.getNodeByName("parent").name.should.equal("parent");
       nameTree
         .getNodeByName("parent.child1")
-        .value.should.equal("parent.child1");
+        .name.should.equal("parent.child1");
       nameTree
         .getNodeByName("parent.child2")
-        .value.should.equal("parent.child2");
+        .name.should.equal("parent.child2");
       nameTree
         .getNodeByName("parent.child1.child1-1")
-        .value.should.equal("parent.child1.child1-1");
+        .name.should.equal("parent.child1.child1-1");
     });
   });
 
@@ -59,11 +59,11 @@ describe("NameHierarchicalTree.js", function() {
       nameTree.addChild("parent.child2");
       nameTree.addChild("parent.child1.child1-1");
 
-      nameTree.getChildrenOf("parent")[0].value.should.equal("parent.child1");
-      nameTree.getChildrenOf("parent")[1].value.should.equal("parent.child2");
+      nameTree.getChildrenOf("parent")[0].name.should.equal("parent.child1");
+      nameTree.getChildrenOf("parent")[1].name.should.equal("parent.child2");
       nameTree
         .getChildrenOf("parent.child1")[0]
-        .value.should.equal("parent.child1.child1-1");
+        .name.should.equal("parent.child1.child1-1");
     });
   });
 

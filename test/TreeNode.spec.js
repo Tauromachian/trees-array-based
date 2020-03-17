@@ -122,7 +122,7 @@ describe("TreeNode.js", function() {
       expect(parentNode.getChild).to.exist;
     });
 
-    it("Should return undefined if no matching value", function() {
+    it("Should return undefined if no matching name", function() {
       const parentNode = new TreeNode("parent");
       expect(parentNode.getChild("test")).to.be.undefined;
     });
@@ -154,7 +154,7 @@ describe("TreeNode.js", function() {
     });
   });
   describe("hasChildren", function() {
-    it("Should return a boolean value", function() {
+    it("Should return a boolean name", function() {
       let parentNode = new TreeNode("parent");
       parentNode.hasChildren("test").should.be.a("boolean");
     });
@@ -200,7 +200,7 @@ describe("TreeNode.js", function() {
 
       parentNode.removeChild(childNode1);
 
-      parentNode.getChildren(parentNode.value).should.not.include(childNode1);
+      parentNode.getChildren(parentNode.name).should.not.include(childNode1);
     });
   });
 });

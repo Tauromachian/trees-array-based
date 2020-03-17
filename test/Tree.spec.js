@@ -205,7 +205,7 @@ describe("Tree.js", function() {
   });
 
   describe("getNode", function() {
-    it("Should return the node equivalent to the value", function() {
+    it("Should return the node equivalent to the name", function() {
       let tree = new Tree();
 
       let treeNode1 = new TreeNode("testName1");

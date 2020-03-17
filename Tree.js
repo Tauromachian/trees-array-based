@@ -68,7 +68,7 @@ class Tree {
       return 1;
     }
 
-    let parentNode = this._deepSearchFirstMatch(this.head, nodeParent.value);
+    let parentNode = this._deepSearchFirstMatch(this.head, nodeParent.name);
     parentNode.addChild(treeNode);
 
     return 1;
@@ -83,11 +83,11 @@ class Tree {
     this.head.addChild(node);
   }
 
-  _deepSearchAllMatch(parent, value, searched=[]) {
+  _deepSearchAllMatch(parent, name, searched=[]) {
     return parent.children.flatMap(child => {
-      searched.concat(this._deepSearchAllMatch(child, value, searched));
+      searched.concat(this._deepSearchAllMatch(child, name, searched));
 
-      if(this.isEqual(child, value)){
+      if(this.isEqual(child, name)){
         searched.push(child);
       }
 
@@ -95,31 +95,31 @@ class Tree {
     });
   }
 
-  _deepSearchFirstMatch(parent, value) {
-    if (this.isEqual(parent, value)) {
+  _deepSearchFirstMatch(parent, name) {
+    if (this.isEqual(parent, name)) {
       return parent;
     }
 
-    if (parent.hasChildren(value)) {
-      return parent.getChild(value);
+    if (parent.hasChildren(name)) {
+      return parent.getChild(name);
     }
 
     return parent.children.flatMap(child =>
-      this._deepSearchFirstMatch(child, value)
+      this._deepSearchFirstMatch(child, name)
     )[0];
   }
 
   isEqual(nodeOne, nodeTwo) {
     if (nodeOne instanceof TreeNode && nodeTwo instanceof TreeNode) {
-      return nodeOne.value === nodeTwo.value;
+      return nodeOne.name === nodeTwo.name;
     }
     if (!(nodeOne instanceof TreeNode || nodeTwo instanceof TreeNode)) {
       return nodeOne === nodeTwo;
     }
     if (nodeOne instanceof TreeNode) {
-      return nodeOne.value === nodeTwo;
+      return nodeOne.name === nodeTwo;
     } else {
-      return nodeOne === nodeTwo.value;
+      return nodeOne === nodeTwo.name;
     }
   }
 }
