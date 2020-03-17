@@ -29,7 +29,7 @@ class Tree {
     let node;
     
     if(object instanceof TreeNode){
-      node = this._deepSearchFirstMatch(this.head, object.getValue());
+      node = this._deepSearchFirstMatch(this.head, object.getName());
     }else{
       node = this._deepSearchFirstMatch(this.head, object);
     }

@@ -1,8 +1,9 @@
 const Validator = require("./Validator");
 
 class TreeNode {
-  constructor(name, parent) {
+  constructor(name, parent, value) {
     this.name = name;
+    this.value = value;
     this.parent = parent;
     this.children = [];
   }
@@ -82,13 +83,15 @@ class TreeNode {
     return this.parent;
   }
 
-  setValue(name) {
+  setName(name) {
     this.name = name;
   }
 
-  getValue() {
+  getName() {
     return this.name;
   }
+
+  
 
   hasChildren(node) {
     if (!node) {
