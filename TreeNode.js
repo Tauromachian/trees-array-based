@@ -91,7 +91,13 @@ class TreeNode {
     return this.name;
   }
 
-  
+  setValue(value) {
+    this.value = value;
+  }
+
+  getValue() {
+    return this.value;
+  }
 
   hasChildren(node) {
     if (!node) {
