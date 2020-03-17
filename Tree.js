@@ -8,12 +8,18 @@ class Tree {
     this.head = new TreeNode(null);
   }
 
+  /**
+   * 
+   * @param {String, TreeNode} object The name or tree node to insert
+   * @param {} nodeParent 
+   * @param {*} value 
+   */
   addChild(object, nodeParent, value) {
     if (!object) {
       return 1;
     }
 
-    if(object instanceof TreeNode && object instanceof String){
+    if(!(object instanceof TreeNode) && typeof object !== "string" && typeof object !== Number){
       return 1;
     }
 
