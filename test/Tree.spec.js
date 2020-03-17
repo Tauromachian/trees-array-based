@@ -218,4 +218,19 @@ describe("Tree.js", function() {
       tree.getNode("testName2").should.equal(treeNode2);
     });
   });
+
+  describe("getValue", function () {
+    it("Should return the node value", function () {
+      let tree = new Tree();
+
+      let treeNode1 = new TreeNode("testName1");
+      let treeNode2 = new TreeNode("testName2");
+
+      tree.addChild(treeNode1, null, "testValue1");
+      tree.addChild(treeNode2, treeNode1, "testValue2");
+
+      tree.getValue("testName1").should.equal("testValue1");
+      tree.getValue("testName2").should.equal("testValue2");
+    });
+  });
 });
