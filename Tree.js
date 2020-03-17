@@ -68,6 +68,18 @@ class Tree {
     return this._deepSearchFirstMatch(this.head, object);
   }
 
+  /**
+   * Gets the value of a node whos value is passed as an argument
+   * @param {String} nodeName The name of the node whos value is going to be returned
+   */
+  getValue(nodeName){
+    if(typeof nodeName !== "string"){
+      return 0;
+    }
+    const node = this.getNode(nodeName);
+    return node.getValue();
+  }
+
   _addChildrenTreeNode(treeNode, nodeParent) {
     if (!nodeParent) {
       this._addNodeToHead(treeNode);
