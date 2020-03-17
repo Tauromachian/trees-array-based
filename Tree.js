@@ -8,16 +8,22 @@ class Tree {
     this.head = new TreeNode(null);
   }
 
-  addChild(object, nodeParent) {
+  addChild(object, nodeParent, value) {
     if (!object) {
       return 1;
     }
 
+    if(object instanceof TreeNode && object instanceof String){
+      return 1;
+    }
+
     if (object instanceof TreeNode) {
+      object.setValue(value);
       this._addChildrenTreeNode(object, nodeParent);
       return 0;
     }
-    this.addChildrenValue(nodeValue, nodeParent);
+
+    this._addChildrenValue(nodeValue, nodeParent, value);
     return 0;
   }
 
@@ -74,8 +80,9 @@ class Tree {
     return 1;
   }
 
-  _addChildrenValue(nodeValue, nodeParent) {
+  _addChildrenValue(nodeValue, nodeParent, value) {
     let node = new TreeNode(nodeValue);
+    node.value = value;
     this._addChildrenTreeNode(node, nodeParent);
   }
 
