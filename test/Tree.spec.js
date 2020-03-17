@@ -220,6 +220,18 @@ describe("Tree.js", function() {
   });
 
   describe("getValue", function () {
+    it("Should return 0", function () {
+      let tree = new Tree();
+
+      let treeNode1 = new TreeNode("testName1");
+      let treeNode2 = new TreeNode("testName2");
+
+      tree.addChild(treeNode1, null, "testValue1");
+      tree.addChild(treeNode2, treeNode1, "testValue2");
+
+      tree.getValue(null).should.equal(0);
+      tree.getValue(treeNode2).should.equal(0);
+    });
     it("Should return the node value", function () {
       let tree = new Tree();
 
