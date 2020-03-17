@@ -9,21 +9,23 @@ class Tree {
   }
 
   /**
-   * 
-   * @param {String, TreeNode, Number} object The name or int of the tree
-   * @param {} nodeParent 
-   * @param {*} value 
+   * This method adds a child (TreeNode) to a parent(TreeNode).
+   * @param {String, TreeNode, Number} object The name or int of the tree name. 
+   * If a TreeNode type is provided it will be inserte as is.
+   * @param {String, TreeNode, undefined, null} nodeParent Node parent of the children to insert. 
+   * If no noParent is provided the child will be inserted to the head.
+   * @param {any} value Value of the Node. 
    */
   addChild(object, nodeParent, value) {
     if (!object) {
       return 1;
     }
 
-    if(!(object instanceof TreeNode) && typeof object !== "string" && typeof object !== Number){
+    if (!(object instanceof TreeNode) && typeof object !== "string" && typeof object !== Number) {
       return 1;
     }
 
-    if(typeof object === Number){
+    if (typeof object === Number) {
       object = String(object);
     }
 
@@ -38,19 +40,19 @@ class Tree {
   }
 
   removeChild(object) {
-    if(!object){
+    if (!object) {
       return -1;
     }
 
     let node;
-    
-    if(object instanceof TreeNode){
+
+    if (object instanceof TreeNode) {
       node = this._deepSearchFirstMatch(this.head, object.getName());
-    }else{
+    } else {
       node = this._deepSearchFirstMatch(this.head, object);
     }
 
-    if(!node){
+    if (!node) {
       return 1;
     }
 
@@ -61,13 +63,13 @@ class Tree {
   }
 
   getChildrenOf(object) {
-    if(!object){
+    if (!object) {
       return this.head.getChildren();
     }
 
     const nodeParent = this._deepSearchFirstMatch(this.head, object);
 
-    if(!nodeParent){
+    if (!nodeParent) {
       return 0;
     }
 
@@ -82,8 +84,8 @@ class Tree {
    * Gets the value of a node whos value is passed as an argument
    * @param {String} nodeName The name of the node whos value is going to be returned
    */
-  getValue(nodeName){
-    if(typeof nodeName !== "string"){
+  getValue(nodeName) {
+    if (typeof nodeName !== "string") {
       return 0;
     }
     const node = this.getNode(nodeName);
@@ -112,11 +114,11 @@ class Tree {
     this.head.addChild(node);
   }
 
-  _deepSearchAllMatch(parent, name, searched=[]) {
+  _deepSearchAllMatch(parent, name, searched = []) {
     return parent.children.flatMap(child => {
       searched.concat(this._deepSearchAllMatch(child, name, searched));
 
-      if(this.isEqual(child, name)){
+      if (this.isEqual(child, name)) {
         searched.push(child);
       }
 
