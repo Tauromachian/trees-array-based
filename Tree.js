@@ -10,7 +10,7 @@ class Tree {
 
   /**
    * 
-   * @param {String, TreeNode} object The name or tree node to insert
+   * @param {String, TreeNode, Number} object The name or int of the tree
    * @param {} nodeParent 
    * @param {*} value 
    */
@@ -21,6 +21,10 @@ class Tree {
 
     if(!(object instanceof TreeNode) && typeof object !== "string" && typeof object !== Number){
       return 1;
+    }
+
+    if(typeof object === Number){
+      object = String(object);
     }
 
     if (object instanceof TreeNode) {
