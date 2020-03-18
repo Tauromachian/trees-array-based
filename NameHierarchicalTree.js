@@ -58,7 +58,10 @@ class NameHierarchichalTree extends Tree {
    */
   getChildrenOf(childrenName) {
     let node = this.getNodeByName(childrenName);
-    return node.getChildren();
+    if(node){
+      return node.getChildren();
+    }
+    return 0;
   }
 
   /**
