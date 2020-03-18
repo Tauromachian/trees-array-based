@@ -42,8 +42,14 @@ class NameHierarchichalTree extends Tree {
    */
   removeChild(childrenName) {
     let node = this.getNodeByName(childrenName);
+
+    if(!node){
+      return 1;
+    }
+
     let parentNode = node.getParent();
     parentNode.removeChild(node);
+    return 0;
   }
 
   /**
