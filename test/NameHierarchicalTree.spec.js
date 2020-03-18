@@ -42,6 +42,15 @@ describe("NameHierarchicalTree.js", function() {
   });
 
   describe("getNodeByName", function() {
+    it("Should return 0", function () {
+      let nameTree = new NameHierarchicalTree();
+
+      nameTree.addChild("parent");
+      nameTree.addChild("parent.child1");
+      nameTree.addChild("parent.child2");
+
+      nameTree.getChildrenOf("testErrorCode").should.equal(0);      
+    }),
     it("Should return the node given the name", function() {
       let nameTree = new NameHierarchicalTree();
 
@@ -64,6 +73,15 @@ describe("NameHierarchicalTree.js", function() {
   });
 
   describe("getChildrenOf", function() {
+    it("Should return 0", function () {
+      let nameTree = new NameHierarchicalTree();
+
+      nameTree.addChild("parent");
+      nameTree.addChild("parent.child1");
+      nameTree.addChild("parent.child2");
+
+      nameTree.getChildrenOf("testErrorCode").should.equal(0);      
+    }),
     it("Should return the children of the node", function() {
       let nameTree = new NameHierarchicalTree();
 
