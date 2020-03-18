@@ -81,6 +81,14 @@ describe("NameHierarchicalTree.js", function() {
   });
 
   describe("removeChild", function() {
+    it("Should return 1", function () {
+      let nameTree = new NameHierarchicalTree();
+
+      nameTree.addChild("parent");
+      nameTree.addChild("parent.child1");
+
+      nameTree.removeChild("testError").should.equal(1);
+    });
     it("Should remove succesfully", function() {
       let nameTree = new NameHierarchicalTree();
 
