@@ -98,7 +98,14 @@ class Tree {
       return 1;
     }
 
-    let parentNode = this._deepSearchFirstMatch(this.head, nodeParent.name);
+    let nodeParentName;
+    if(nodeParent instanceof TreeNode){
+      nodeParentName = nodeParent.name;
+    }else{
+      nodeParentName = nodeParent;
+    }
+
+    let parentNode = this._deepSearchFirstMatch(this.head, nodeParentName);
     parentNode.addChild(treeNode);
 
     return 1;
