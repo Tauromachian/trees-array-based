@@ -11,6 +11,13 @@ describe("NameHierarchicalTree.js", function() {
   });
 
   describe("addChild", function() {
+    it("Should return -1", function () {
+      let nameTree = new NameHierarchicalTree();
+
+      nameTree.addChild(1).should.equal(-1);
+      nameTree.addChild([]).should.equal(-1);
+      nameTree.addChild(true).should.equal(-1);
+    });
     it("Should insert succesfully", function() {
       let nameTree = new NameHierarchicalTree();
 
