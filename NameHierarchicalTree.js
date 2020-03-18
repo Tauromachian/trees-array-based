@@ -14,14 +14,14 @@ class NameHierarchichalTree extends Tree {
    * Inserts a node to the end of the name hierarchy
    * @param  {String} childrenName The name of the node thats gonna be inserted
    */
-  addChild(childrenName) {
+  addChild(childrenName, value) {
     if (!Validator.isString(childrenName)) {
       return -1;
     }
 
     const indexOfLastDot = childrenName.lastIndexOf(".");
     if (indexOfLastDot === -1){
-      this.head.addChild(new TreeNode(childrenName, this.head));
+      this.head.addChild(new TreeNode(childrenName, this.head, value));
       return 0;
     }
 
@@ -32,7 +32,7 @@ class NameHierarchichalTree extends Tree {
       return 1;
     }
 
-    node.addChild(new TreeNode(childrenName, node));
+    node.addChild(new TreeNode(childrenName, node, value));
     return 0;
   }
 
