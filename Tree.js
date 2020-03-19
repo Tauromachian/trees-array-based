@@ -25,7 +25,7 @@ class Tree {
       return 1;
     }
 
-    if (typeof object === Number) {
+    if (typeof object === "number") {
       object = String(object);
     }
 
@@ -35,7 +35,7 @@ class Tree {
       return 0;
     }
 
-    this._addChildrenValue(nodeValue, nodeParent, value);
+    this._addChildrenValue(object, nodeParent, value);
     return 0;
   }
 
@@ -113,7 +113,7 @@ class Tree {
 
   _addChildrenValue(nodeValue, nodeParent, value) {
     let node = new TreeNode(nodeValue);
-    node.value = value;
+    node.setValue(value);
     this._addChildrenTreeNode(node, nodeParent);
   }
 
