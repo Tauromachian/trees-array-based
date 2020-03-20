@@ -84,6 +84,10 @@ class Tree {
     return nodeParent.getChildren();
   }
 
+  /**
+   * Returns a node who's name is the object parameter.
+   * @param {TreeNode} object Name of the node.
+   */
   getNode(object) {
     return this._deepSearchFirstMatch(this.head, object);
   }
