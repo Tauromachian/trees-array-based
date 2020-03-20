@@ -2,9 +2,10 @@
   "name": "trees-array-based",
   "version": "1.1.2",
   "description": "A trees datastructure based on arrays",
-  "main": "index.js",
+  "main": "dist/main.js",
   "scripts": {
-    "test": "mocha tests/"
+    "test": "mocha tests/",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "mocha": "^7.1.0",
-    "webpack": "^4.42.0"
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11"
   }
 }
