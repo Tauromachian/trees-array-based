@@ -6,7 +6,7 @@ This package has three main object classes for now.
 
 #### TreeNode:
 The nodes of the tree. 
-This class has children and a reference to the parent.
+This class has children and a reference to the parent it also have a value.
 You can use them directly for creating your own Tree structure based on array.
 
 #### Tree:
@@ -31,13 +31,16 @@ const NameHierarchicalTree = require("trees-array-based").NameHierarchicalTree;
 ## How to use:
 #### TreeNode
 TreeNode is a perfectly independent class that can be use to create your own datastructure.
-TreeNode has mainly two things a value and children.
+TreeNode has mainly tree things a value and children.
+- Name: It identifies the node. Depending on the Tree datastructure can be repeated or not.
+- Value: This is simply the value on the node. It can have any value, undefined and null included.
+- Children: The children of this node. Unless you are using TreeNode directly you won't have contact with this.
 ```
 const TreeNode = require("trees-array-based").TreeNode;
 
 let node1 = new TreeNode("testValue1");
-let node2 = new TreeNode("testValue2");
-let node3 = new TreeNode("testValue3");
+let node2 = new TreeNode("testValue2",1);
+let node3 = new TreeNode("testValue3",[1,2,3]);
 let node4 = new TreeNode("testValue4");
 
 node1.addChild(node2);
@@ -49,6 +52,7 @@ node2.removeChild(node3);
 #### Tree:
 Tree is the most generic part of this module. It abstracts the work with TreeNodes.
 Nodes can be repeated.
+You can use directly TreeNode objects.
 ```
 const TreeNode = require("trees-array-based").Tree;
 const TreeNode = require("trees-array-based").TreeNode;
@@ -70,6 +74,20 @@ tree.addChild(node4, node3);
 tree.removeChild(node3);
 tree.removeChild("testValue4");
 ```
+Is also posible to create the children using addChild without importing the TreeNode class.
+```
+const TreeNode = require("trees-array-based").Tree;
+
+tree.addChild("node1");
+tree.addChild("node2");
+
+tree.addChild("node3", "node2");
+tree.addChild("node4", "node2");
+tree.addChild("node4", "node3");
+
+tree.removeChild("node3");
+tree.removeChild("testValue4");
+``` 
 #### NameHierarchicalTree:
 NameHierarchicalTree creates a tree based on a hierarchical name structure using dots.
 Example
