@@ -2,7 +2,7 @@ const chai = require("chai");
 const expect = chai.expect;
 const should = chai.should();
 
-const TreeNode = require("./../TreeNode");
+const TreeNode = require("./../src/TreeNode");
 
 describe("TreeNode.js", function() {
   it("Should exist", function() {
