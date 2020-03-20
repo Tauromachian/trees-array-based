@@ -217,6 +217,19 @@ describe("Tree.js", function() {
       tree.getChildrenOf().should.not.include(treeNode1);
       tree.getChildrenOf().should.include(treeNode2);
     });
+    it("Should remove the node succesfully", function() {
+      let tree = new Tree();
+      let treeNode1 = new TreeNode("testName1");
+      let treeNode2 = new TreeNode("testName2");
+
+      tree.addChild(treeNode1);
+      tree.addChild(treeNode2);
+
+      tree.removeChild("testName1");
+
+      tree.getChildrenOf().should.not.include(treeNode1);
+      tree.getChildrenOf().should.include(treeNode2);
+    });
   });
 
   describe("getNode", function() {
