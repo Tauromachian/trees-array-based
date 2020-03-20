@@ -37,17 +37,20 @@ TreeNode has mainly tree things a value and children.
 - Children: The children of this node. Unless you are using TreeNode directly you won't have contact with this.
 
 Methods:
-- addChild()
-- removeChild()
-- getChildren()
-- getChild()
+- addChild(treeNodeChildren)
+- removeChild(object)
+- getChildren(name)
+- getChild(name)
+- setValue(value)
 - getValue()
 - isEqual()
-- setParent()
+- setParent(parent)
 - getParent()
-- setName()
+- setName(name)
 - getName()
-- hasChildren()
+- hasChildren(node)
+
+Example:
 
 ```
 const TreeNode = require("trees-array-based").TreeNode;
@@ -68,12 +71,12 @@ Tree is the most generic part of this module. It abstracts the work with TreeNod
 Nodes can be repeated.
 
 Methods:
-- addChild()
-- removeChild()
-- getChildrenOf()
-- getNode()
-- getValue()
-- isEqual()
+- addChild(object, nodeParent, value)
+- removeChild(object)
+- getChildrenOf(object)
+- getNode(object)
+- getValue(nodeName)
+- isEqual(nodeOne, nodeTwo)
 
 You can use directly TreeNode objects.
 ```
@@ -123,14 +126,14 @@ parent.child1
 parent.child2
 
 Methods:
-- addChild()
-- removeChild()
-- getChildrenOf()
-- getNodeByName()
-- getValue()
-- isEqual()
+- addChild(childrenName, value)
+- removeChild(childrenName)
+- getChildrenOf(childrenName)
+- getNodeByName(nodeName)
+- getValue(nodeName)
+- isEqual(nodeOne, nodeTwo)
 
-Code examples
+Example:
 ```
 const NameHierarchicalTree = require("trees-array-based").NameHierarchicalTree;
 
