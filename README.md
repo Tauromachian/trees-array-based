@@ -35,6 +35,20 @@ TreeNode has mainly tree things a value and children.
 - Name: It identifies the node. Depending on the Tree datastructure can be repeated or not.
 - Value: This is simply the value on the node. It can have any value, undefined and null included.
 - Children: The children of this node. Unless you are using TreeNode directly you won't have contact with this.
+
+Methods:
+- addChild()
+- removeChild()
+- getChildren()
+- getChild()
+- getValue()
+- isEqual()
+- setParent()
+- getParent()
+- setName()
+- getName()
+- hasChildren()
+
 ```
 const TreeNode = require("trees-array-based").TreeNode;
 
@@ -52,6 +66,15 @@ node2.removeChild(node3);
 #### Tree:
 Tree is the most generic part of this module. It abstracts the work with TreeNodes.
 Nodes can be repeated.
+
+Methods:
+- addChild()
+- removeChild()
+- getChildrenOf()
+- getNode()
+- getValue()
+- isEqual()
+
 You can use directly TreeNode objects.
 ```
 const TreeNode = require("trees-array-based").Tree;
@@ -74,7 +97,7 @@ tree.addChild(node4, node3);
 tree.removeChild(node3);
 tree.removeChild("testValue4");
 ```
-Is also posible to create the children using addChild without importing the TreeNode class.
+Is also posible to create the children using addChild without importing the TreeNode class. Using names.
 ```
 const TreeNode = require("trees-array-based").Tree;
 
@@ -90,6 +113,8 @@ tree.removeChild("testValue4");
 ``` 
 #### NameHierarchicalTree:
 NameHierarchicalTree creates a tree based on a hierarchical name structure using dots.
+
+
 Example
 parent
 
@@ -97,6 +122,15 @@ This are the children:
 parent.child1
 parent.child2
 
+Methods:
+- addChild()
+- removeChild()
+- getChildrenOf()
+- getNodeByName()
+- getValue()
+- isEqual()
+
+Code examples
 ```
 const NameHierarchicalTree = require("trees-array-based").NameHierarchicalTree;
 
