@@ -66,6 +66,10 @@ class Tree {
     return 0;
   }
 
+  /**
+   * Gets all the children of a node.
+   * @param {TreeNode, String} object Name of the node that you want the children of
+   */
   getChildrenOf(object) {
     if (!object) {
       return this.head.getChildren();
