@@ -39,6 +39,10 @@ class Tree {
     return 0;
   }
 
+  /**
+   * Removes a node.
+   * @param {TreeNode, String} object Object is the name of the object to remove
+   */
   removeChild(object) {
     if (!object) {
       return -1;
