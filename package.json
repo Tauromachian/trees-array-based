@@ -1,6 +1,6 @@
 {
   "name": "trees-array-based",
-  "version": "1.1.2",
+  "version": "2.0.0",
   "description": "A trees datastructure based on arrays",
   "main": "index.js",
   "files": [
