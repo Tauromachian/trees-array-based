@@ -22,10 +22,15 @@ Here father.child is the child of the father and will be inserted as a child of 
 This Tree does'nt accepts repeated values.
 
 ## How to import:
+CommonJS
 ```
 const TreeNode = require("trees-array-based").TreeNode;
 const Tree = require("trees-array-based").Tree;
 const NameHierarchicalTree = require("trees-array-based").NameHierarchicalTree;
+```
+ES6 module syntax
+```
+import {TreeNode, Tree, NameHierarchicalTree} from "trees-array-based"
 ```
 
 ## How to use:
