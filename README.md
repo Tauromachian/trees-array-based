@@ -2,19 +2,25 @@
 
 The objective of this module is to provide a basic and generic Tree data structure and some of its derivatives.
 
+This module is made using common js.
+
+You can use this module in the next environments:
+ - browser
+ - node commonjs
+ - es6
+
 This package has three main object classes for now.
 
 #### TreeNode:
 The nodes of the tree. 
-This class has children and a reference to the parent it also have a value.
-You can use them directly for creating your own Tree structure based on array.
+You can use this class to create your own Tree structure based on arrays. Its also possible using objects of this class in the Tree datastructure.
 
 #### Tree:
-A generic Tree estructure.
-Provides the validator and the methods 
+A generic Tree structure.
+The objective of this class is create a generic Tree data structure upon wich other trees data structure can be created.
 
 #### NameHierarchicalTree:
-A Tree datastructure that provides a hierarchi to the way that nodes are inserted based on the values of the nodes.
+A Tree data structure that provides a hierarchy to the way that nodes are inserted based on the values of the nodes.
 Example:
 "father"
 "father.child"
@@ -32,11 +38,15 @@ ES6 module syntax
 ```
 import {TreeNode, Tree, NameHierarchicalTree} from "trees-array-based"
 ```
+Browser
+```
+<script type="text/javascript" src="trees-array-based"> 
+```
 
 ## How to use:
 #### TreeNode
 TreeNode is a perfectly independent class that can be use to create your own datastructure.
-TreeNode has mainly tree things a value and children.
+TreeNode has mainly tree things:
 - Name: It identifies the node. Depending on the Tree datastructure can be repeated or not.
 - Value: This is simply the value on the node. It can have any value, undefined and null included.
 - Children: The children of this node. Unless you are using TreeNode directly you won't have contact with this.
@@ -71,6 +81,7 @@ node3.addChild(node4);
 
 node2.removeChild(node3);
 ```
+
 #### Tree:
 Tree is the most generic part of this module. It abstracts the work with TreeNodes.
 Nodes can be repeated.
@@ -119,9 +130,10 @@ tree.addChild("node4", "node3");
 tree.removeChild("node3");
 tree.removeChild("testValue4");
 ``` 
+Avoid using both aproaches as it has not been tested.
+
 #### NameHierarchicalTree:
 NameHierarchicalTree creates a tree based on a hierarchical name structure using dots.
-
 
 Example
 parent
