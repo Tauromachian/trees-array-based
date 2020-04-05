@@ -20,7 +20,7 @@
     "data",
     "structure"
   ],
-  "author": "Jose Garcia",
+  "author": "jogarcia",
   "license": "ISC",
   "devDependencies": {
     "chai": "^4.2.0",
