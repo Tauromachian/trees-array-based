@@ -1,8 +1,23 @@
-const MinifyPlugin = require("babel-minify-webpack-plugin");
+const path = require("path");
 
-module.exports = {
+var commonJsConfig = {
   target: 'node',
   mode: 'production',
-  uglify: false,
-  minimize: true
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'trees-array-based.node.js',
+    libraryTarget: 'commonjs'
+  }
 };
+
+var browserConfig = {
+  target: 'web',
+  mode: 'production',
+  output: {
+    libraryTarget: 'umd',
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'trees-array-based.min.js'
+  }
+};
+
+module.exports = [commonJsConfig, browserConfig];
