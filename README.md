@@ -38,9 +38,9 @@ ES6 module syntax
 ```
 import {TreeNode, Tree, NameHierarchicalTree} from "trees-array-based"
 ```
-Browser
+Browser import the min.js file.
 ```
-<script type="text/javascript" src="trees-array-based"> 
+<script type="text/javascript" src="trees-array-based.min.js"> 
 ```
 
 ## How to use:
