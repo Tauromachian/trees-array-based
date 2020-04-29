@@ -1,6 +1,6 @@
 {
   "name": "trees-array-based",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "description": "A trees datastructure based on arrays",
   "main": "dist/trees-array-based.node.js",
   "unpkg": "dist/trees-array-based.min.js",
