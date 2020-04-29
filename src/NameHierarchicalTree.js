@@ -6,8 +6,9 @@ const Validator = require("./Validator");
  * This tree is'nt generic, is specialized to have a name hierarchy.
  */
 class NameHierarchichalTree extends Tree {
-  constructor() {
+  constructor(separator=".") {
     super();
+    this._separator = separator;
   }
   /**
    * Searchs in the tree hierarchy and adds a new node in its corresponing place
@@ -19,7 +20,7 @@ class NameHierarchichalTree extends Tree {
       return -1;
     }
 
-    const indexOfLastDot = childrenName.lastIndexOf(".");
+    const indexOfLastDot = childrenName.lastIndexOf(this._separator);
     if (indexOfLastDot === -1){
       this.head.addChild(new TreeNode(childrenName, this.head, value));
       return 0;
