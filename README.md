@@ -1,4 +1,4 @@
-# A trees datastructure based on arrays.
+# A trees datastructure based on arrays
 
 The objective of this module is to provide a basic and generic Tree data structure and some of its derivatives.
 
@@ -11,15 +11,15 @@ You can use this module in the next environments:
 
 This package has three main object classes for now.
 
-#### TreeNode:
+#### TreeNode
 The nodes of the tree. 
 You can use this class to create your own Tree structure based on arrays. Its also possible using objects of this class in the Tree datastructure.
 
-#### Tree:
+#### Tree
 A generic Tree structure.
 The objective of this class is create a generic Tree data structure upon wich other trees data structure can be created.
 
-#### NameHierarchicalTree:
+#### NameHierarchicalTree
 A Tree data structure that provides a hierarchy to the way that nodes are inserted based on the values of the nodes.
 Example:
 "father"
@@ -27,7 +27,7 @@ Example:
 Here father.child is the child of the father and will be inserted as a child of the father node.
 This Tree does'nt accepts repeated values.
 
-## How to import:
+## How to import
 CommonJS
 ```
 const TreeNode = require("trees-array-based").TreeNode;
@@ -43,7 +43,7 @@ Browser import the min.js file.
 <script type="text/javascript" src="trees-array-based.min.js"> 
 ```
 
-## How to use:
+## How to use
 #### TreeNode
 TreeNode is a perfectly independent class that can be use to create your own datastructure.
 TreeNode has mainly tree things:
@@ -82,7 +82,7 @@ node3.addChild(node4);
 node2.removeChild(node3);
 ```
 
-#### Tree:
+#### Tree
 Tree is the most generic part of this module. It abstracts the work with TreeNodes.
 Nodes can be repeated.
 
@@ -132,13 +132,25 @@ tree.removeChild("testValue4");
 ``` 
 Avoid using both aproaches as it has not been tested.
 
-#### NameHierarchicalTree:
-NameHierarchicalTree creates a tree based on a hierarchical name structure using dots.
+#### NameHierarchicalTree
+NameHierarchicalTree creates a tree based on a hierarchical name structure using dots. A separator of choice can be provided. The default separators are dots.
 
 Example
+
+```
+const NameHierarchicalTree = require("trees-array-based").NameHierarchicalTree;
+let nameTree = new NameHierarchicalTree("@");
+
+nameTree.addChild("parent");
+nameTree.addChild("parent@child1");
+```
+
+Example
+
 parent
 
 This are the children:
+
 parent.child1
 parent.child2
 
