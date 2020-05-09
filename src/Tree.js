@@ -111,9 +111,9 @@ class Tree {
     }
 
     let nodeParentName;
-    if(nodeParent instanceof TreeNode){
+    if (nodeParent instanceof TreeNode) {
       nodeParentName = nodeParent.name;
-    }else{
+    } else {
       nodeParentName = nodeParent;
     }
 
@@ -146,6 +146,14 @@ class Tree {
   }
 
   _deepSearchFirstMatch(parent, name) {
+    const treeNodeOneElementArray = this._deepSearchFirstMatchRecursive(parent, name);
+    if (Array.isArray(treeNodeOneElementArray)) {
+      return treeNodeOneElementArray.pop();
+    }
+    return treeNodeOneElementArray;
+  }
+
+  _deepSearchFirstMatchRecursive(parent, name) {
     if (this.isEqual(parent, name)) {
       return parent;
     }
@@ -155,8 +163,8 @@ class Tree {
     }
 
     return parent.children.flatMap(child =>
-      this._deepSearchFirstMatch(child, name)
-    )[0];
+      this._deepSearchFirstMatchRecursive(child, name)
+    );
   }
 
   isEqual(nodeOne, nodeTwo) {
