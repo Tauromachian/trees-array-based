@@ -1,3 +1,4 @@
 .jshintrc
+.vscode
 node_modules
 dist
