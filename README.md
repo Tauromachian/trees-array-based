@@ -96,7 +96,7 @@ Methods:
 
 You can use directly TreeNode objects.
 ```
-const TreeNode = require("trees-array-based").Tree;
+const Tree = require("trees-array-based").Tree;
 const TreeNode = require("trees-array-based").TreeNode;
 
 let tree = new Tree();
@@ -118,7 +118,8 @@ tree.removeChild("testValue4");
 ```
 Is also posible to create the children using addChild without importing the TreeNode class. Using names.
 ```
-const TreeNode = require("trees-array-based").Tree;
+const Tree = require("trees-array-based").Tree;
+let tree = new Tree();
 
 tree.addChild("node1");
 tree.addChild("node2");
