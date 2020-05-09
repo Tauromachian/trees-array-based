@@ -77,6 +77,24 @@ describe("Tree.js", function() {
       tree._deepSearchFirstMatch(treeNode, "testName2").should.equal(treeNode2);
       tree._deepSearchFirstMatch(treeNode, "testName3").should.equal(treeNode3);
     });
+    it("Should return the matching node", function() {
+      let tree = new Tree();
+      let treeNode = new TreeNode("testName1");
+      let treeNode2 = new TreeNode("testName2");
+      let treeNode3 = new TreeNode("testName3");
+      let treeNode4 = new TreeNode("testName4");
+      let treeNode5 = new TreeNode("testName5");
+      treeNode.addChild(treeNode2);
+      treeNode2.addChild(treeNode3);
+      tree.head.addChild(treeNode);
+      treeNode3.addChild(treeNode4);
+      treeNode3.addChild(treeNode4);
+
+      tree._deepSearchFirstMatch(treeNode, "testName2").should.equal(treeNode2);
+      tree._deepSearchFirstMatch(treeNode, "testName3").should.equal(treeNode3);
+      tree._deepSearchFirstMatch(treeNode, "testName4").should.equal(treeNode4);
+      tree._deepSearchFirstMatch(treeNode, "testName5").should.equal(treeNode5);
+    });
   });
 
   describe("_deepSearchAllMatch", function() {
