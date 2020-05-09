@@ -201,6 +201,20 @@ describe("Tree.js", function() {
       expect(tree.getChildrenOf("treeNode1")[0].name).to.be.equal("treeNode3");
       expect(tree.getChildrenOf("treeNode1")[1].name).to.be.equal("treeNode4");
     });
+    it("Should insert correctly the node", function() {
+      let tree = new Tree();
+      
+      tree.addChild("treeNode1");
+      tree.addChild("treeNode2");
+      tree.addChild("treeNode3", "treeNode1");
+      tree.addChild("treeNode4", "treeNode2");
+      tree.addChild("treeNode4", "treeNode3");
+
+      expect(tree.getChildrenOf()[0].name).to.be.equal("treeNode1");
+      expect(tree.getChildrenOf()[1].name).to.be.equal("treeNode2");
+      expect(tree.getChildrenOf("treeNode1")[0].name).to.be.equal("treeNode3");
+      expect(tree.getChildrenOf("treeNode1")[1].name).to.be.equal("treeNode4");
+    });
   });
 
   describe("removeChild", function() {
