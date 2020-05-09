@@ -5,39 +5,39 @@ const should = chai.should();
 const Tree = require("./../src/Tree");
 const TreeNode = require("./../src/TreeNode");
 
-describe("Tree.js", function() {
-  it("Should exist", function() {
+describe("Tree.js", function () {
+  it("Should exist", function () {
     expect(Tree).to.exist;
   });
 
-  describe("isEqual", function() {
-    it("Should return a boolean", function() {
+  describe("isEqual", function () {
+    it("Should return a boolean", function () {
       let tree = new Tree();
       let treeNode1 = new TreeNode("testName");
       let treeNode2 = new TreeNode("testName");
       tree.isEqual(treeNode1, treeNode2).should.be.an("boolean");
     });
-    it("Should return true", function() {
+    it("Should return true", function () {
       let tree = new Tree();
       let treeNode1 = new TreeNode("testName");
       let treeNode2 = new TreeNode("testName");
       tree.isEqual(treeNode1, treeNode2).should.equal(true);
     });
-    it("Should return true", function() {
+    it("Should return true", function () {
       let tree = new Tree();
       tree.isEqual("testName", "testName").should.equal(true);
     });
-    it("Should return true", function() {
+    it("Should return true", function () {
       let tree = new Tree();
       let treeNode1 = new TreeNode("testName");
       tree.isEqual(treeNode1, "testName").should.equal(true);
     });
-    it("Should return true", function() {
+    it("Should return true", function () {
       let tree = new Tree();
       let treeNode2 = new TreeNode("testName");
       tree.isEqual("testName", treeNode2).should.equal(true);
     });
-    it("Should return false", function() {
+    it("Should return false", function () {
       let tree = new Tree();
       let treeNode1 = new TreeNode("testName");
       let treeNode2 = new TreeNode("testName2");
@@ -45,15 +45,15 @@ describe("Tree.js", function() {
     });
   });
 
-  describe("_deepSearchFirstMatch", function() {
-    it("Should return undefined", function() {
+  describe("_deepSearchFirstMatch", function () {
+    it("Should return undefined", function () {
       let tree = new Tree();
       let treeNode = new TreeNode("testName");
       tree.head.addChild(treeNode);
 
       expect(tree._deepSearchFirstMatch(treeNode, "testError")).to.be.undefined;
     });
-    it("Should return the matching node", function() {
+    it("Should return the matching node", function () {
       let tree = new Tree();
       let treeNode = new TreeNode("testName1");
       let treeNode2 = new TreeNode("testName2");
@@ -65,7 +65,7 @@ describe("Tree.js", function() {
       tree._deepSearchFirstMatch(treeNode, "testName2").should.equal(treeNode2);
       tree._deepSearchFirstMatch(treeNode, "testName3").should.equal(treeNode3);
     });
-    it("Should return the matching node", function() {
+    it("Should return the matching node", function () {
       let tree = new Tree();
       let treeNode = new TreeNode("testName1");
       let treeNode2 = new TreeNode("testName2");
@@ -77,7 +77,7 @@ describe("Tree.js", function() {
       tree._deepSearchFirstMatch(treeNode, "testName2").should.equal(treeNode2);
       tree._deepSearchFirstMatch(treeNode, "testName3").should.equal(treeNode3);
     });
-    it("Should return the matching node", function() {
+    it("Should return the matching node when searching from head", function () {
       let tree = new Tree();
       let treeNode = new TreeNode("testName1");
       let treeNode2 = new TreeNode("testName2");
@@ -89,13 +89,12 @@ describe("Tree.js", function() {
       tree._deepSearchFirstMatch(tree.head, "testName2").should.equal(treeNode2);
       tree._deepSearchFirstMatch(tree.head, "testName3").should.equal(treeNode3);
     });
-    it("Should return the matching node", function() {
+    it("Should return the matching node", function () {
       let tree = new Tree();
       let treeNode = new TreeNode("testName1");
       let treeNode2 = new TreeNode("testName2");
       let treeNode3 = new TreeNode("testName3");
       let treeNode4 = new TreeNode("testName4");
-      let treeNode5 = new TreeNode("testName5");
       treeNode.addChild(treeNode2);
       treeNode2.addChild(treeNode3);
       tree.head.addChild(treeNode);
@@ -105,19 +104,18 @@ describe("Tree.js", function() {
       tree._deepSearchFirstMatch(treeNode, "testName2").should.equal(treeNode2);
       tree._deepSearchFirstMatch(treeNode, "testName3").should.equal(treeNode3);
       tree._deepSearchFirstMatch(treeNode, "testName4").should.equal(treeNode4);
-      tree._deepSearchFirstMatch(treeNode, "testName5").should.equal(treeNode5);
     });
   });
 
-  describe("_deepSearchAllMatch", function() {
-    it("Should be empty", function() {
+  describe("_deepSearchAllMatch", function () {
+    it("Should be empty", function () {
       let tree = new Tree();
       let treeNode = new TreeNode("testName");
       tree.head.addChild();
 
       expect(tree._deepSearchAllMatch(treeNode, "testError")).to.be.empty;
     });
-    it("Should return all the matching nodes", function() {
+    it("Should return all the matching nodes", function () {
       let tree = new Tree();
       let treeNode1 = new TreeNode("testName1");
       let treeNode2 = new TreeNode("testName2");
@@ -149,13 +147,13 @@ describe("Tree.js", function() {
     });
   });
 
-  describe("getChildrenOf", function() {
-    it("Should return an array", function() {
+  describe("getChildrenOf", function () {
+    it("Should return an array", function () {
       let tree = new Tree();
       expect(tree.getChildrenOf("testError")).to.equal(0);
     });
 
-    it("Should contain the children nodes", function() {
+    it("Should contain the children nodes", function () {
       let tree = new Tree();
       let treeNode1 = new TreeNode("testName1");
       let treeNode2 = new TreeNode("testName2");
@@ -174,24 +172,24 @@ describe("Tree.js", function() {
     });
   });
 
-  describe("addChild", function() {
-    it("Should return a number", function() {
+  describe("addChild", function () {
+    it("Should return a number", function () {
       let tree = new Tree();
       let treeNode = new TreeNode("testName");
       tree.addChild(treeNode).should.be.a("number");
     });
-    it("Should return a 0 Ok code", function() {
+    it("Should return a 0 Ok code", function () {
       let tree = new Tree();
       let treeNode = new TreeNode("testName");
       tree.addChild(treeNode).should.equal(0);
     });
-    it("Should return a 1 Error code", function() {
+    it("Should return a 1 Error code", function () {
       let tree = new Tree();
       tree.addChild().should.equal(1);
       tree.addChild(true).should.equal(1);
       tree.addChild(5).should.equal(1);
     });
-    it("Should insert correctly the node", function() {
+    it("Should insert correctly the node", function () {
       let tree = new Tree();
       let treeNode1 = new TreeNode("testName1");
       let treeNode2 = new TreeNode("testName2");
@@ -201,7 +199,7 @@ describe("Tree.js", function() {
       tree.getChildrenOf().should.include(treeNode1);
       tree.getChildrenOf().should.include(treeNode2);
     });
-    it("Should insert correctly the node", function() {
+    it("Should insert correctly the node", function () {
       let tree = new Tree();
       let treeNode1 = new TreeNode("testName1");
       let treeNode2 = new TreeNode("testName2");
@@ -218,9 +216,9 @@ describe("Tree.js", function() {
       tree.getChildrenOf("testName1").should.include(treeNode3);
       tree.getChildrenOf("testName1").should.include(treeNode4);
     });
-    it("Should insert correctly the node", function() {
+    it("Should insert correctly the node", function () {
       let tree = new Tree();
-      
+
       tree.addChild("treeNode1");
       tree.addChild("treeNode2");
       tree.addChild("treeNode3", "treeNode1");
@@ -231,9 +229,9 @@ describe("Tree.js", function() {
       expect(tree.getChildrenOf("treeNode1")[0].name).to.be.equal("treeNode3");
       expect(tree.getChildrenOf("treeNode1")[1].name).to.be.equal("treeNode4");
     });
-    it("Should insert correctly the node", function() {
+    it("Should insert correctly the node", function () {
       let tree = new Tree();
-      
+
       tree.addChild("treeNode1");
       tree.addChild("treeNode2");
       tree.addChild("treeNode3", "treeNode1");
@@ -243,12 +241,13 @@ describe("Tree.js", function() {
       expect(tree.getChildrenOf()[0].name).to.be.equal("treeNode1");
       expect(tree.getChildrenOf()[1].name).to.be.equal("treeNode2");
       expect(tree.getChildrenOf("treeNode1")[0].name).to.be.equal("treeNode3");
-      expect(tree.getChildrenOf("treeNode1")[1].name).to.be.equal("treeNode4");
+      expect(tree.getChildrenOf("treeNode2")[0].name).to.be.equal("treeNode4");
+      expect(tree.getChildrenOf("treeNode3")[0].name).to.be.equal("treeNode4");
     });
   });
 
-  describe("removeChild", function() {
-    it("Should remove the node succesfully", function() {
+  describe("removeChild", function () {
+    it("Should remove the node succesfully", function () {
       let tree = new Tree();
       let treeNode1 = new TreeNode("testName1");
       let treeNode2 = new TreeNode("testName2");
@@ -261,7 +260,7 @@ describe("Tree.js", function() {
       tree.getChildrenOf().should.not.include(treeNode1);
       tree.getChildrenOf().should.include(treeNode2);
     });
-    it("Should remove the node succesfully", function() {
+    it("Should remove the node succesfully", function () {
       let tree = new Tree();
       let treeNode1 = new TreeNode("testName1");
       let treeNode2 = new TreeNode("testName2");
@@ -276,8 +275,8 @@ describe("Tree.js", function() {
     });
   });
 
-  describe("getNode", function() {
-    it("Should return the node equivalent to the name", function() {
+  describe("getNode", function () {
+    it("Should return the node equivalent to the name", function () {
       let tree = new Tree();
 
       let treeNode1 = new TreeNode("testName1");
