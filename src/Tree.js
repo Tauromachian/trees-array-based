@@ -18,10 +18,6 @@ class Tree extends GenericTree {
    * @param {any} value Value of the Node. 
    */
   addChild(object, nodeParent, value) {
-    if (!object) {
-      return 1;
-    }
-
     if (!this._isEntryValid(object)) {
       return 1;
     }
