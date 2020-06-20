@@ -27,6 +27,10 @@ class GenericTree {
    * @param {String} nodeName the name of the node who's names are going to be returned
    */
   getChildrenOf(nodeName) {
+    if(!nodeName) {
+      return this.head.getChildren();
+    }
+
     const node = this.getNode(nodeName);
 
     if (!node) {
