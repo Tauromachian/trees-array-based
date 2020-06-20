@@ -41,24 +41,6 @@ class Tree extends GenericTree {
   }
 
   /**
-   * Gets all the children of a node.
-   * @param {TreeNode, String} object Name of the node that you want the children of
-   */
-  getChildrenOf(object) {
-    if (!object) {
-      return this.head.getChildren();
-    }
-
-    const nodeParent = this._deepSearchFirstMatch(this.head, object);
-
-    if (!nodeParent) {
-      return 0;
-    }
-
-    return nodeParent.getChildren();
-  }
-
-  /**
    * Returns a node who's name is the object parameter.
    * @param {TreeNode} object Name of the node.
    */
