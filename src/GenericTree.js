@@ -9,7 +9,7 @@ class GenericTree {
 
   /**
    * Removes a node who's name is passed
-   * @param {nodeName} nodeName the name of the node that needs to be removed
+   * @param {String} nodeName the name of the node that needs to be removed
    */
   removeChild(nodeName) {
     if (!this._isEntryValid(nodeName)) {
@@ -24,7 +24,7 @@ class GenericTree {
 
   /**
    * 
-   * @param {nodeName} nodeName the name of the node who's names are going to be returned
+   * @param {String} nodeName the name of the node who's names are going to be returned
    */
   getChildrenOf(nodeName) {
     const node = this.getNode(nodeName);
@@ -36,6 +36,10 @@ class GenericTree {
     return node.getChildren();
   }
 
+  /**
+   * Returns a node who's name is the object parameter.
+   * @param {String} object Name of the node.
+   */
   getNode(nodeName) {
     if (!this._isEntryValid(nodeName)) {
       return 0;
@@ -50,6 +54,10 @@ class GenericTree {
     return node;
   }
 
+  /**
+   * Gets the value of a node whos value is passed as an argument
+   * @param {String} nodeName The name of the node whos value is going to be returned
+   */
   getValue(nodeName) {
     const node = this.getNode(nodeName);
 
