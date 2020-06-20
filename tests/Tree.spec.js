@@ -201,7 +201,6 @@ describe("Tree.js", function () {
       let tree = new Tree();
       tree.addChild().should.equal(1);
       tree.addChild(true).should.equal(1);
-      tree.addChild(5).should.equal(1);
     });
     it("Should insert correctly the node", function () {
       let tree = new Tree();
