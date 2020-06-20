@@ -147,6 +147,21 @@ describe("Tree.js", function () {
     });
   });
 
+  describe("getNode", function () {
+    it("Should return the node equivalent to the name", function () {
+      let tree = new Tree();
+
+      let treeNode1 = new TreeNode("testName1");
+      let treeNode2 = new TreeNode("testName2");
+
+      tree.addChild(treeNode1);
+      tree.addChild(treeNode2, treeNode1);
+
+      tree.getNode("testName1").should.equal(treeNode1);
+      tree.getNode("testName2").should.equal(treeNode2);
+    });
+  });
+
   describe("getChildrenOf", function () {
     it("Should return an array", function () {
       let tree = new Tree();
@@ -272,21 +287,6 @@ describe("Tree.js", function () {
 
       tree.getChildrenOf().should.not.include(treeNode1);
       tree.getChildrenOf().should.include(treeNode2);
-    });
-  });
-
-  describe("getNode", function () {
-    it("Should return the node equivalent to the name", function () {
-      let tree = new Tree();
-
-      let treeNode1 = new TreeNode("testName1");
-      let treeNode2 = new TreeNode("testName2");
-
-      tree.addChild(treeNode1);
-      tree.addChild(treeNode2, treeNode1);
-
-      tree.getNode("testName1").should.equal(treeNode1);
-      tree.getNode("testName2").should.equal(treeNode2);
     });
   });
 
