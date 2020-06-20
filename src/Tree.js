@@ -41,33 +41,6 @@ class Tree extends GenericTree {
   }
 
   /**
-   * Removes a node.
-   * @param {TreeNode, String} object Object is the name of the object to remove
-   */
-  removeChild(object) {
-    if (!object) {
-      return -1;
-    }
-
-    let node;
-
-    if (object instanceof TreeNode) {
-      node = this._deepSearchFirstMatch(this.head, object.getName());
-    } else {
-      node = this._deepSearchFirstMatch(this.head, object);
-    }
-
-    if (!node) {
-      return 1;
-    }
-
-    let nodeParent = node.getParent();
-    nodeParent.removeChild(object);
-
-    return 0;
-  }
-
-  /**
    * Gets all the children of a node.
    * @param {TreeNode, String} object Name of the node that you want the children of
    */
