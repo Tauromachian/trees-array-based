@@ -15,8 +15,8 @@ class NameHierarchichalTree extends Tree {
    * @param  {String} childrenName The name of the node thats gonna be inserted
    */
   addChild(childrenName, value) {
-    if (!Validator.isString(childrenName)) {
-      return -1;
+    if (!this._isEntryValid()) {
+      return 1;
     }
 
     const indexOfLastDot = childrenName.lastIndexOf(this._separator);
@@ -103,6 +103,10 @@ class NameHierarchichalTree extends Tree {
       }
     }
     return null;
+  }
+
+  _searchNode(nodeName) {
+    return this.getNodeByName(nodeName);
   }
 
   _isEntryValid(nodeName) {
