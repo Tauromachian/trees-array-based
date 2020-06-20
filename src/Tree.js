@@ -56,6 +56,24 @@ class Tree extends GenericTree {
     return 1;
   }
 
+  _toTreeNode(object) {
+    if(object instanceof TreeNode) {
+      return object;
+    }
+
+    let node;
+
+    if (typeof object === "number") {
+      object = String(object);
+    }
+
+    if (typeof object === "string") {
+      node = new TreeNode(object);
+    }
+
+    return node;
+  }
+
   _addNodeToHead(node) {
     this.head.addChild(node);
   }
