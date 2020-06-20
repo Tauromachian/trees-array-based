@@ -32,9 +32,9 @@ class TreeNode {
 
     let index;
 
-    if(object instanceof TreeNode){
+    if (object instanceof TreeNode) {
       index = this._indexOf(object.name);
-    }else{
+    } else {
       index = this._indexOf(object);
     }
 
@@ -61,12 +61,12 @@ class TreeNode {
     if (!name) {
       return this.children;
     } else {
-      return this.children.filter(child => child.name === name);
+      return this.children.filter((child) => child.name === name);
     }
   }
 
   getChild(name) {
-    return this.children.find(child => child.name === name);
+    return this.children.find((child) => child.name === name);
   }
 
   /**
@@ -113,6 +113,18 @@ class TreeNode {
     }
 
     return false;
+  }
+
+  isEqual(node) {
+    if(!(node instanceof TreeNode || typeof node === 'string')) {
+      throw new Error("Expected node to be either type of string or instance of TreeNode");
+    }
+
+    if (node instanceof TreeNode) {
+      return node.name === this.name;
+    } else {
+      return node === this.name;
+    }
   }
 }
 module.exports = TreeNode;
