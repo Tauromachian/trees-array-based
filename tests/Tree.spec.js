@@ -299,7 +299,6 @@ describe("Tree.js", function () {
       tree.addChild(treeNode2, treeNode1, "testValue2");
 
       tree.getValue(null).should.equal(0);
-      tree.getValue(treeNode2).should.equal(0);
     });
     it("Should return the node value", function () {
       let tree = new Tree();
