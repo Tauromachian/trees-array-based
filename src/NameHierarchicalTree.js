@@ -104,6 +104,14 @@ class NameHierarchichalTree extends Tree {
     }
     return null;
   }
+
+  _isEntryValid(nodeName) {
+    if (typeof nodeName === "string") {
+      return true;
+    }
+    return false;
+  }
+
 }
 
 module.exports = NameHierarchichalTree;
