@@ -7,6 +7,10 @@ class GenericTree {
 
   addChild() {}
 
+  /**
+   * Removes a node who's name is passed
+   * @param {nodeName} nodeName the name of the node that needs to be removed
+   */
   removeChild(nodeName) {
     if (!this._isEntryValid(nodeName)) {
       return 1;
