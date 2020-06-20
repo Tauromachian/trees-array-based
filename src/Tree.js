@@ -4,7 +4,7 @@ const GenericTree = require("./GenericTree");
 /**
  * Generic array tree based structure
  */
-class Tree extends GenericTree{
+class Tree extends GenericTree {
   constructor() {
     super();
   }
@@ -190,8 +190,16 @@ class Tree extends GenericTree{
     } else {
       node = this._deepSearchFirstMatch(this.head, nodeName);
     }
-    
+
     return node;
   }
+
+  _isEntryValid(nodeName) {
+    if (typeof nodeName === "string" || typeof nodeName === "number" || nodeName instanceof TreeNode) {
+      return true;
+    }
+    return false;
+  }
+
 }
 module.exports = Tree;
