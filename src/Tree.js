@@ -1,11 +1,12 @@
 const TreeNode = require("./TreeNode");
+const GenericTree = require("./GenericTree");
 
 /**
  * Generic array tree based structure
  */
-class Tree {
+class Tree extends GenericTree{
   constructor() {
-    this.head = new TreeNode(null);
+    super();
   }
 
   /**
