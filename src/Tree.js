@@ -38,20 +38,6 @@ class Tree extends GenericTree {
     return 0;
   }
 
-  _addChildrenTreeNode(treeNode, nodeParent) {
-    let nodeParentName;
-    if (nodeParent instanceof TreeNode) {
-      nodeParentName = nodeParent.name;
-    } else {
-      nodeParentName = nodeParent;
-    }
-
-    let parentNode = this._deepSearchFirstMatch(this.head, nodeParentName);
-    parentNode.addChild(treeNode);
-
-    return 1;
-  }
-
   _toTreeNode(object) {
     if(object instanceof TreeNode) {
       return object;
