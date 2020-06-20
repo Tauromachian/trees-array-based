@@ -26,15 +26,14 @@ class Tree extends GenericTree {
     nodeChild.setValue(value);
 
     if (!nodeParent) {
-      this._addNodeToHead(node);
+      this._addNodeToHead(nodeChild);
       return 0;
     }
 
-    nodeParent = this._toTreeNode(nodeParent);
-
-
-
-    this._addChildrenTreeNode(node, nodeParent);
+    const nodeParentName = this._toValidTreeNodeName(nodeParent);
+    const parentNode = this._deepSearchFirstMatch(this.head, nodeParentName);
+    
+    parentNode.addChild(nodeChild);
     return 0;
   }
 
