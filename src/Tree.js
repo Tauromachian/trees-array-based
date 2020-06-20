@@ -181,5 +181,17 @@ class Tree extends GenericTree{
       return nodeOne === nodeTwo.name;
     }
   }
+
+  _searchNode(nodeName) {
+    let node;
+
+    if (nodeName instanceof TreeNode) {
+      node = this._deepSearchFirstMatch(this.head, nodeName.getName());
+    } else {
+      node = this._deepSearchFirstMatch(this.head, nodeName);
+    }
+    
+    return node;
+  }
 }
 module.exports = Tree;
