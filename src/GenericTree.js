@@ -45,7 +45,7 @@ class GenericTree {
       return 0;
     }
 
-    const node = this._searchNode(node);
+    const node = this._searchNode(nodeName);
 
     if (!node) {
       return 0;
