@@ -22,21 +22,22 @@ class Tree extends GenericTree {
       return 1;
     }
 
-    if (!(object instanceof TreeNode) && typeof object !== "string" && typeof object !== Number) {
+    if (!this._isEntryValid(object)) {
       return 1;
     }
+
+    let node;
 
     if (typeof object === "number") {
       object = String(object);
     }
 
-    if (object instanceof TreeNode) {
-      object.setValue(value);
-      this._addChildrenTreeNode(object, nodeParent);
-      return 0;
+    if (typeof object === "string") {
+      node = new TreeNode(object);
     }
 
-    this._addChildrenValue(object, nodeParent, value);
+    node.setValue(value);
+    this._addChildrenTreeNode(node, nodeParent);
     return 0;
   }
 
@@ -57,12 +58,6 @@ class Tree extends GenericTree {
     parentNode.addChild(treeNode);
 
     return 1;
-  }
-
-  _addChildrenValue(nodeValue, nodeParent, value) {
-    let node = new TreeNode(nodeValue);
-    node.setValue(value);
-    this._addChildrenTreeNode(node, nodeParent);
   }
 
   _addNodeToHead(node) {
