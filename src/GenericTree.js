@@ -22,6 +22,10 @@ class GenericTree {
     return 0;
   }
 
+  /**
+   * 
+   * @param {nodeName} nodeName the name of the node who's names are going to be returned
+   */
   getChildrenOf(nodeName) {
     const node = this.getNode(nodeName);
 
