@@ -1,5 +1,3 @@
-const Validator = require("./Validator");
-
 class TreeNode {
   constructor(name, parent, value) {
     this.name = name;
@@ -50,7 +48,7 @@ class TreeNode {
   }
 
   _removeChildrenByIndex(index) {
-    if (!Validator.isNumber(index)) {
+    if (typeof index !== "number") {
       return 1;
     }
     this.children.splice(index, 1);
