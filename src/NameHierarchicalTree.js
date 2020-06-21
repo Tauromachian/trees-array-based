@@ -65,18 +65,6 @@ class NameHierarchichalTree extends GenericTree {
     });
   }
 
-  _search(parent, nodeName) {
-    if (parent.name == nodeName) {
-      return parent;
-    }
-    for (const key in parent.children) {
-      if (nodeName.includes(parent.children[key].name)) {
-        return this._search(parent.children[key], nodeName);
-      }
-    }
-    return null;
-  }
-
   _searchNode(nodeName) {
     return this.getNodeByName(nodeName);
   }
