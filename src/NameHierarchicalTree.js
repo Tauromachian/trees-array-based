@@ -1,10 +1,10 @@
-const Tree = require("./Tree");
-const TreeNode = require("./TreeNode");
+const Gene = require("./Tree");
+const GenericTree = require("./GenericTree");
 
 /**
  * This tree is'nt generic, is specialized to have a name hierarchy.
  */
-class NameHierarchichalTree extends Tree {
+class NameHierarchichalTree extends GenericTree {
   constructor(separator=".") {
     super();
     this._separator = separator;
@@ -33,34 +33,6 @@ class NameHierarchichalTree extends Tree {
     }
 
     node.addChild(new TreeNode(childrenName, node, value));
-    return 0;
-  }
-
-  /**
-   * Removes a node
-   * @param  {String} childrenName Name of the node to remove
-   */
-  removeChild(childrenName) {
-    let node = this.getNodeByName(childrenName);
-
-    if(!node){
-      return 1;
-    }
-
-    let parentNode = node.getParent();
-    parentNode.removeChild(node);
-    return 0;
-  }
-
-  /**
-   * Gets the children of the node name passed as a parameter
-   * @param {String} childrenName The name of the parameter
-   */
-  getChildrenOf(childrenName) {
-    let node = this.getNodeByName(childrenName);
-    if(node){
-      return node.getChildren();
-    }
     return 0;
   }
 
