@@ -159,7 +159,7 @@ Methods:
 - addChild(childrenName, value)
 - removeChild(childrenName)
 - getChildrenOf(childrenName)
-- getNodeByName(nodeName)
+- getNode(nodeName)
 - getValue(nodeName)
 - isEqual(nodeOne, nodeTwo)
 
@@ -177,5 +177,5 @@ nameTree.removeChild("parent.child1");
 
 nameTree.getChildrenOf("parent");
 
-let treeNode = nameTree.getNodeByName("parent");
+let treeNode = nameTree.getNode("parent");
 ```
