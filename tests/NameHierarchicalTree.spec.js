@@ -13,32 +13,27 @@ describe("NameHierarchicalTree.js", function () {
   describe("getNodeByName", function () {
     it("Should return 0", function () {
       let nameTree = new NameHierarchicalTree();
-
-      nameTree.addChild("parent");
-      nameTree.addChild("parent.child1");
-      nameTree.addChild("parent.child2");
-
       nameTree.getChildrenOf("testErrorCode").should.equal(0);
-    }),
-      it("Should return the node given the name", function () {
-        let nameTree = new NameHierarchicalTree();
+    });
+    it("Should return the node given the name", function () {
+      let nameTree = new NameHierarchicalTree();
 
-        nameTree.addChild("parent");
-        nameTree.addChild("parent.child1");
-        nameTree.addChild("parent.child2");
-        nameTree.addChild("parent.child1.child1-1");
+      let treeNode1 = new TreeNode("parent");
+      let treeNode2 = new TreeNode("parent.child1");
+      let treeNode3 = new TreeNode("parent.child2");
+      treeNode1.addChild(treeNode2);
+      treeNode1.addChild(treeNode3);
 
-        nameTree.getNodeByName("parent").name.should.equal("parent");
-        nameTree
-          .getNodeByName("parent.child1")
-          .name.should.equal("parent.child1");
-        nameTree
-          .getNodeByName("parent.child2")
-          .name.should.equal("parent.child2");
-        nameTree
-          .getNodeByName("parent.child1.child1-1")
-          .name.should.equal("parent.child1.child1-1");
-      });
+      nameTree.head.addChild(treeNode1);
+
+      nameTree.getNodeByName("parent").name.should.equal("parent");
+      nameTree
+        .getNodeByName("parent.child1")
+        .name.should.equal("parent.child1");
+      nameTree
+        .getNodeByName("parent.child2")
+        .name.should.equal("parent.child2");
+    });
   });
 
   describe("addChild", function () {
