@@ -77,6 +77,13 @@ class GenericTree {
     return node.getValue();
   }
 
+  isEqual(nodeOne, nodeTwo) {
+    if (nodeOne instanceof TreeNode && nodeTwo instanceof TreeNode) {
+      return nodeOne.isEqual(nodeTwo);
+    }
+    return 1;
+  }
+
   _isEntryValid(nodeName) { }
 
   /**

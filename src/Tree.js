@@ -107,20 +107,6 @@ class Tree extends GenericTree {
     );
   }
 
-  isEqual(nodeOne, nodeTwo) {
-    if (nodeOne instanceof TreeNode && nodeTwo instanceof TreeNode) {
-      return nodeOne.name === nodeTwo.name;
-    }
-    if (!(nodeOne instanceof TreeNode || nodeTwo instanceof TreeNode)) {
-      return nodeOne === nodeTwo;
-    }
-    if (nodeOne instanceof TreeNode) {
-      return nodeOne.name === nodeTwo;
-    } else {
-      return nodeOne === nodeTwo.name;
-    }
-  }
-
   _searchNode(nodeName) {
     let node;
 
