@@ -5,7 +5,7 @@ class GenericTree {
     this.head = new TreeNode(null);
   }
 
-  addChild() {}
+  addChild() { }
 
   /**
    * Removes a node who's name is passed
@@ -17,6 +17,11 @@ class GenericTree {
     }
 
     const node = this._searchNode(nodeName);
+
+    if (!node) {
+      return 1;
+    }
+
     const nodeParent = node.getParent();
     nodeParent.removeChild(node);
     return 0;
@@ -27,7 +32,7 @@ class GenericTree {
    * @param {String} nodeName the name of the node who's names are going to be returned
    */
   getChildrenOf(nodeName) {
-    if(!nodeName) {
+    if (!nodeName) {
       return this.head.getChildren();
     }
 
@@ -72,9 +77,9 @@ class GenericTree {
     return node.getValue();
   }
 
-  _isEntryValid(nodeName) {}
+  _isEntryValid(nodeName) { }
 
-  _searchNode(nodeName) {}
+  _searchNode(nodeName) { }
 }
 
 module.exports = GenericTree;
