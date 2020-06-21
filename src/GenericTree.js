@@ -79,6 +79,10 @@ class GenericTree {
 
   _isEntryValid(nodeName) { }
 
+  /**
+  * Searchs in the tree a node with the name providen
+  * @param  {String} nodeName name of the node to search
+  */
   _searchNode(nodeName) { }
 }
 
