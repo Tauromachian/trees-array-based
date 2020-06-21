@@ -1,22 +1,22 @@
 const path = require("path");
 
 var commonJsConfig = {
-  target: 'node',
-  mode: 'production',
+  target: "node",
+  mode: "production",
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'trees-array-based.node.js',
-    libraryTarget: 'commonjs'
+    path: path.resolve(__dirname, "dist"),
+    filename: "trees-array-based.node.js",
+    libraryTarget: "commonjs"
   }
 };
 
 var browserConfig = {
-  target: 'web',
-  mode: 'production',
+  target: "web",
+  mode: "production",
   output: {
-    libraryTarget: 'umd',
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'trees-array-based.min.js'
+    libraryTarget: "umd",
+    path: path.resolve(__dirname, "dist"),
+    filename: "trees-array-based.min.js"
   }
 };
 
