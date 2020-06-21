@@ -36,10 +36,7 @@ class NameHierarchichalTree extends GenericTree {
     return 0;
   }
 
-  /**
-   * Searchs in the tree a node with the name providen
-   * @param  {String} nodeName name of the node to search
-   */
+
   _searchNode(nodeName) {
     const node = this._searchNodeByName(this.head, nodeName);
     if (node) {
