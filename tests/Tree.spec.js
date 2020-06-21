@@ -1,6 +1,6 @@
 const chai = require("chai");
 const expect = chai.expect;
-const should = chai.should();
+chai.should();
 
 const Tree = require("./../src/Tree");
 const TreeNode = require("./../src/TreeNode");
