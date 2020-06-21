@@ -81,7 +81,14 @@ class GenericTree {
     if (nodeOne instanceof TreeNode && nodeTwo instanceof TreeNode) {
       return nodeOne.isEqual(nodeTwo);
     }
-    return 1;
+    if (!(nodeOne instanceof TreeNode || nodeTwo instanceof TreeNode)) {
+      return nodeOne === nodeTwo;
+    }
+    if (nodeOne instanceof TreeNode) {
+      return nodeOne.isEqual(nodeTwo);
+    } else {
+      return nodeTwo.isEqual(nodeOne);
+    }
   }
 
   _isEntryValid(nodeName) { }
