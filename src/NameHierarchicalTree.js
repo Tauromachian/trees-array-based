@@ -26,7 +26,7 @@ class NameHierarchichalTree extends GenericTree {
     }
 
     const parentName = childrenName.substring(0, indexOfLastDot);
-    let node = this.getNodeByName(parentName);
+    let node = this._searchNode(parentName);
 
     if (!node) {
       return 1;
@@ -40,7 +40,7 @@ class NameHierarchichalTree extends GenericTree {
    * Searchs in the tree a node with the name providen
    * @param  {String} nodeName name of the node to search
    */
-  getNodeByName(nodeName) {
+  _searchNode(nodeName) {
     const node = this._searchNodeByName(this.head, nodeName);
     if (node) {
       return node;
@@ -63,10 +63,6 @@ class NameHierarchichalTree extends GenericTree {
         return this._searchNodeByName(child, nodeName);
       }
     });
-  }
-
-  _searchNode(nodeName) {
-    return this.getNodeByName(nodeName);
   }
 
   _isEntryValid(nodeName) {

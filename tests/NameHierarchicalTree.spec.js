@@ -10,7 +10,7 @@ describe("NameHierarchicalTree.js", function () {
     expect(NameHierarchicalTree).to.exist;
   });
 
-  describe("getNodeByName", function () {
+  describe("_searchNode", function () {
     it("Should return 0", function () {
       let nameTree = new NameHierarchicalTree();
       nameTree.getChildrenOf("testErrorCode").should.equal(0);
@@ -26,12 +26,12 @@ describe("NameHierarchicalTree.js", function () {
 
       nameTree.head.addChild(treeNode1);
 
-      nameTree.getNodeByName("parent").name.should.equal("parent");
+      nameTree._searchNode("parent").name.should.equal("parent");
       nameTree
-        .getNodeByName("parent.child1")
+        ._searchNode("parent.child1")
         .name.should.equal("parent.child1");
       nameTree
-        .getNodeByName("parent.child2")
+        ._searchNode("parent.child2")
         .name.should.equal("parent.child2");
     });
   });
@@ -138,7 +138,7 @@ describe("NameHierarchicalTree.js", function () {
       nameTree.getChildrenOf("parent.child1").should.be.empty;
 
       nameTree.removeChild("parent");
-      nameTree.getNodeByName("parent").should.equal(0);
+      nameTree._searchNode("parent").should.equal(0);
     });
   });
 });
