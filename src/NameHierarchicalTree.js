@@ -15,7 +15,7 @@ class NameHierarchichalTree extends GenericTree {
    * @param  {String} childrenName The name of the node thats gonna be inserted
    */
   addChild(childrenName, value) {
-    if (!this._isEntryValid()) {
+    if (!this._isEntryValid(childrenName)) {
       return 1;
     }
 
