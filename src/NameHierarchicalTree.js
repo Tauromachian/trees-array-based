@@ -1,4 +1,4 @@
-const Gene = require("./Tree");
+const TreeNode = require("./TreeNode");
 const GenericTree = require("./GenericTree");
 
 /**
