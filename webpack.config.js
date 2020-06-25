@@ -6,7 +6,7 @@ var commonJsConfig = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "trees-array-based.node.js",
-    libraryTarget: "commonjs"
+    libraryTarget: "commonjs-module"
   }
 };
 
