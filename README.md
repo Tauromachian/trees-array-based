@@ -4,28 +4,32 @@ The objective of this module is to provide a basic and generic Tree data structu
 
 This module is made using common js.
 
-You can use this module in the next environments:
+You can use this module in the following environments:
  - browser
  - node commonjs
  - es6
 
-This package has three main object classes for now.
+What you get from this module
+ - This package has three main object classes for now.
+ - There are two different tree datastructures implemented.
 
 #### TreeNode
 The nodes of the tree. 
-You can use this class to create your own Tree structure based on arrays. Its also possible using objects of this class in the Tree datastructure.
+You can use this class to create your own Tree structure based on arrays. Its also possible to use objects of this class in the Tree datastructure.
+
+The complexity of dealing with this class is mostly abstracted.
 
 #### Tree
 A generic Tree structure.
-The objective of this class is create a generic Tree data structure upon wich other trees data structure can be created.
+This is the more typical type of trees.
 
 #### NameHierarchicalTree
-A Tree data structure that provides a hierarchy to the way that nodes are inserted based on the values of the nodes.
+A Tree data structure that provides a hierarchy to the way that nodes are inserted based on the name of the nodes.
 Example:
 "father"
 "father.child"
 Here father.child is the child of the father and will be inserted as a child of the father node.
-This Tree does'nt accepts repeated values.
+This Tree does'nt accepts repeated names.
 
 ## How to import
 CommonJS
@@ -134,7 +138,7 @@ tree.removeChild("testValue4");
 Avoid using both aproaches as it has not been tested.
 
 #### NameHierarchicalTree
-NameHierarchicalTree creates a tree based on a hierarchical name structure using dots. A separator of choice can be provided. The default separators are dots.
+NameHierarchicalTree creates a tree based on a hierarchical name structure using a separator of choice. The default separators are dots.
 
 Example
 
