@@ -33,17 +33,17 @@ This Tree does'nt accepts repeated names.
 
 ## How to import
 CommonJS
-```
+```js
 const TreeNode = require("trees-array-based").TreeNode;
 const Tree = require("trees-array-based").Tree;
 const NameHierarchicalTree = require("trees-array-based").NameHierarchicalTree;
 ```
 ES6 module syntax
-```
+```js
 import {TreeNode, Tree, NameHierarchicalTree} from "trees-array-based"
 ```
 Browser import the min.js file.
-```
+```js
 <script type="text/javascript" src="trees-array-based.min.js"> 
 ```
 
@@ -71,7 +71,7 @@ Methods:
 
 Example:
 
-```
+```js
 const TreeNode = require("trees-array-based").TreeNode;
 
 let node1 = new TreeNode("testValue1");
@@ -99,7 +99,7 @@ Methods:
 - isEqual(nodeOne, nodeTwo)
 
 You can use directly TreeNode objects.
-```
+```js
 const Tree = require("trees-array-based").Tree;
 const TreeNode = require("trees-array-based").TreeNode;
 
@@ -121,7 +121,7 @@ tree.removeChild(node3);
 tree.removeChild("testValue4");
 ```
 Is also posible to create the children using addChild without importing the TreeNode class. Using names.
-```
+```js
 const Tree = require("trees-array-based").Tree;
 let tree = new Tree();
 
@@ -142,7 +142,7 @@ NameHierarchicalTree creates a tree based on a hierarchical name structure using
 
 Example
 
-```
+```js
 const NameHierarchicalTree = require("trees-array-based").NameHierarchicalTree;
 let nameTree = new NameHierarchicalTree("@");
 
@@ -168,7 +168,7 @@ Methods:
 - isEqual(nodeOne, nodeTwo)
 
 Example:
-```
+```js
 const NameHierarchicalTree = require("trees-array-based").NameHierarchicalTree;
 
 let nameTree = new NameHierarchicalTree();
